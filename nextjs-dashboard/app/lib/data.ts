@@ -83,7 +83,7 @@ export async function fetchCardData() {
     // console.log('Fetching card data...');
     // await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    
+
     const data = await Promise.all([
       invoiceCountPromise,
       customerCountPromise,
@@ -117,7 +117,6 @@ export async function fetchFilteredInvoices(
 ) {
   noStore();
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-
   try {
     const invoices = await sql<InvoicesTable>`
       SELECT
