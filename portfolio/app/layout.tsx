@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './blog/[slug]/sandpack';
 
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://johnsapan.io'),
   title: {
@@ -62,13 +63,15 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      <body className="antialiased mb-40 mx-4 mt-8 flex flex-col max-w-2xl ">
+        <div className='lg:mx-auto'>
           <Navbar />
+        </div>
+        <main className="flex-auto min-w-0 mt-6 px-2 md:px-0 ">
           {children}
-          <Analytics />
-          <SpeedInsights />
         </main>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
