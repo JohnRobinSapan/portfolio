@@ -19,6 +19,11 @@
   --sh-entity: #e25a1c;
 }
 
+.active-scroll-spy {
+  background-color: blueviolet;
+  border-radius: 15px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --sh-class: #4c97f8;
@@ -55,7 +60,7 @@ html {
   content: '#';
 }
 
-.prose *:hover > .anchor {
+.prose *:hover>.anchor {
   @apply visible;
 }
 
@@ -92,7 +97,7 @@ h4 {
   @apply font-medium;
 }
 
-.prose > :first-child {
+.prose> :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
@@ -103,8 +108,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Remove Safari input shadow on mobile */
@@ -127,10 +134,14 @@ table {
   white-space: nowrap;
 }
 
-.prose .callout > p {
+.prose .callout>p {
   margin: 0 !important;
 }
 
 .title {
   text-wrap: balance;
+}
+
+p {
+  @apply h-screen;
 }
