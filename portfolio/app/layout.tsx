@@ -63,7 +63,7 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased mb-40 mx-4 mt-8 flex flex-col max-w-2xl ">
+      <body className="antialiased mb-40 mx-4 mt-8 flex flex-col">
         <div className='lg:mx-auto'>
           <Navbar />
         </div>

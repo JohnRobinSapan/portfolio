@@ -87,6 +87,10 @@ html {
   @apply m-0;
 }
 
+.prose> :first-child div {
+  @apply h-screen;
+}
+
 .prose h2,
 h3,
 h4 {
@@ -140,8 +144,4 @@ table {
 
 .title {
   text-wrap: balance;
-}
-
-p {
-  @apply h-screen;
 }
