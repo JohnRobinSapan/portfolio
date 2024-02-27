@@ -2,6 +2,7 @@
 import SideNav from './components/sidenav';
 import ScrollSpy from "react-ui-scrollspy";
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
 
 const navItems = {
@@ -29,12 +30,12 @@ export default function Page() {
             width={400}
             height={400}
             className="hidden md:block"
-            alt="Screenshots of the dashboard project showing desktop version"
+            alt="Picture of John Robin Sapan"
           />
         </div>
-        <div className='prose prose-neutral dark:prose-invert flex-1'>
-          <h1 className="font-medium text-6xl tracking-tighter max-w-2xl ">John Robin Sapan</h1>
-          <h2 >Software Engineer</h2>
+        <div className='prosedark:prose-invert flex-1'>
+          <h1 className="text-6xl">John Robin Sapan</h1>
+          <h2 className='text-2xl'>Software Engineer</h2>
         </div>
       </div>
       <div className='flex flex-row'>
