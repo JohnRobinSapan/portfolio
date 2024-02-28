@@ -1,31 +1,33 @@
 interface TimelineItem {
-  date: string;
-  company: string;
-  position: string;
-  experience: string[];
+  date: string
+  company: string
+  position: string
+  experience: string[]
 }
 
 
 
-export default function Timeline({ TimelineItem }) {
+
+export default function Timeline(timelineItem: TimelineItem) {
+  const { date, company, position, experience } = timelineItem;
 
   return (
     <div className='flex flex-row'>
-      <div className='flex-1 text-center'>
+      <div className='flex-none w-80 text-center'>
         <h3>
-          {TimelineItem.date}
+          {date}
         </h3>
       </div>
       <div className='flex-1'>
         <div className='max-w-prose'>
           <h3>
-            {TimelineItem.company}
+            {company}
           </h3>
           <h4>
-            {TimelineItem.position}
+            {position}
           </h4>
           <ul>
-            {TimelineItem.experience.map((item) => {
+            {experience.map((item) => {
               return (
                 <li key={item}>
                   {item}

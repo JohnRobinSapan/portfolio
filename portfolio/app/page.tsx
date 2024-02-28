@@ -59,26 +59,26 @@ export default function Page() {
   return (
     <section >
       <div className='flex flex-row items-center'>
-        <div className='flex-1'>
+        <div className='flex flex-1 justify-center'>
           <Image
             src="/opengraph-image.jpg "
             width={400}
             height={400}
-            className="hidden md:block"
+            className="hidden md:block "
             alt="Picture of John Robin Sapan"
           />
         </div>
-        <div className='prosedark:prose-invert flex-1'>
+        <div className='flex-1'>
           <h1 className="text-6xl">John Robin Sapan</h1>
           <h2 className='text-2xl'>Software Engineer</h2>
         </div>
       </div>
-      <div className='flex flex-row'>
+      <div className='flex flex-row mt-64'>
         <SideNav {...navItems} />
         <div className="prose prose-neutral dark:prose-invert flex-1 max-w-none">
           <ScrollSpy useBoxMethod={false} scrollThrottle={100} >
             <div id='summary'>
-              <span>
+              <div className='flex flex-col flex-1 items-center'>
                 <h2>
                   About Me
                 </h2>
@@ -90,13 +90,29 @@ export default function Page() {
                   and software issues, passionate about continuous learning, and effective
                   in collaborative cross-functional teams.
                 </p>
-              </span>
+              </div>
             </div>
 
             <div id='experience-education'>
-              <Timeline TimelineItem={tdCanadaTrust} />
-              <Timeline TimelineItem={ricoh} />
-              <Timeline TimelineItem={sheridan} />
+              <div className='flex xl:flex-row md:flex-col'>
+                <div className='flex-initial w-[33.33vw] items-center'>
+                  <h1>
+                    Experience & Education
+                  </h1>
+                  <Image
+                    src="/images/home/sheridan_background.webp "
+                    width={400}
+                    height={400}
+                    className="hidden md:block rounded-lg object-cover w-full h-auto"
+                    alt="Picture of Sheridan College"
+                  />
+                </div>
+                <div className='flex-1'>
+                  <Timeline {...tdCanadaTrust} />
+                  <Timeline {...ricoh} />
+                  <Timeline {...sheridan} />
+                </div>
+              </div>
             </div>
 
             <div id='skills' >
@@ -110,30 +126,30 @@ export default function Page() {
             </div>
 
             <div id='certifications' >
-              <span>AZ-900 - Microsoft Certified:
+              <div>AZ-900 - Microsoft Certified:
                 Azure Fundamentals
                 Develop an ASP.NET Core web
                 app that consumes an API
-              </span>
+              </div>
             </div>
 
             <div id='languages-frameworks' >
-              <span>C#
+              <div>C#
                 Java
                 Javascript (React, Angular, Vue.js)
                 Python
                 HTML5 & CSS
                 SQL & NoSQL
-              </span>
+              </div>
             </div>
 
             <div id='interests' >
-              <span>Enthusiastic about staying
+              <div>Enthusiastic about staying
                 current with and adopting the
                 latest technologies, languages,
                 and frameworks in computer and
                 information technology.
-              </span>
+              </div>
             </div>
           </ScrollSpy>
         </div>

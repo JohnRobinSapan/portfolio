@@ -115,7 +115,7 @@ h4 {
 .flex-1 h3,
 .flex-1 h2,
 .flex-1 h1 {
-  @apply my-0;
+  @apply my-5;
 }
 
 .prose> :first-child {
