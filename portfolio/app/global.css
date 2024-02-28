@@ -37,6 +37,14 @@ html {
   min-width: 360px;
 }
 
+body {
+  position: relative;
+}
+
+.prose-default {
+  @apply prose prose-neutral dark:prose-invert;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -87,8 +95,8 @@ html {
   @apply m-0;
 }
 
-.prose> :first-child div {
-  @apply h-screen;
+.prose> :first-child > div {
+  @apply min-h-screen;
 }
 
 
