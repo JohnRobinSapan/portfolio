@@ -1,7 +1,11 @@
 import Link from "next/link";
 
 
+
+
 export default function SideNav(navItems: Object) {
+
+
     return (
         <aside className="-ml-[8px] mb-16 tracking-tight flex-none">
             <div className="lg:sticky lg:top-52">
