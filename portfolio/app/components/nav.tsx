@@ -13,7 +13,7 @@ const navItems = {
   '/guestbook': {
     name: 'guestbook',
   },
-};1
+};
 
 export function Navbar() {
   return (

@@ -7,7 +7,6 @@ interface TimelineItem {
 
 
 
-
 export default function Timeline(timelineItem: TimelineItem) {
   const { date, company, position, experience } = timelineItem;
 
