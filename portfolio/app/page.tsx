@@ -2,11 +2,11 @@
 import SideNav from './components/sidenav';
 import ScrollSpy from "react-ui-scrollspy";
 import Image from 'next/image';
-import type { Metadata } from 'next';
 import Timeline from './components/timeline';
 import Skill from './components/skill';
 import { aboutMe, skills, experiences, certifications, interests } from './db/place-holder';
-
+import EmailButton from './components/email-button'
+import Link from 'next/link';
 
 const sideNavItems = {
   'Summary': { href: 'summary' },
@@ -14,17 +14,12 @@ const sideNavItems = {
   'Skills': { href: 'skills' },
   'Certifications': { href: 'certifications' },
   // 'Languages & Frameworks': { href: 'languages-frameworks' },
-  'Interests': { href: 'interests' }
+  'Interests': { href: 'interests' },
+  'Contact': { href: 'contact' }
 };
 
 
-
-
-
-
 export default function Page() {
-
-
   return (
     <section >
       <div className='flex flex-row items-center'>
@@ -40,6 +35,10 @@ export default function Page() {
         <div className='flex-1'>
           <h1 className="text-6xl">{aboutMe.name}</h1>
           <h2 className='text-2xl'>{aboutMe.title}</h2>
+          <Link href='#contact'
+            className="px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8">
+            Contact
+          </Link>
         </div>
       </div>
       <div className='flex flex-row mt-64'>
@@ -111,13 +110,24 @@ export default function Page() {
 
             <div id='interests' >
               <div>
-              {interests.map((interest, index) => {
+                {interests.map((interest, index) => {
                   return (
                     <li key={index}>
                       {interest}
                     </li>
                   );
                 })}
+
+              </div>
+            </div>
+
+            <div id='contact'>
+              <div>
+                <h1>Contact {aboutMe.name}</h1>
+                <p className="phone-number-link">
+                  Phone Number: 1 (437)-989-8315
+                </p>
+                <EmailButton email="robinsapan@outlook.com" subject="Inquiry via John Sapan Contact Page" body="I'm interested in your services." />
 
               </div>
             </div>

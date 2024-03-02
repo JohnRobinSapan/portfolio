@@ -11,7 +11,7 @@ import { SandpackCSS } from './blog/[slug]/sandpack';
 export const metadata: Metadata = {
   metadataBase: new URL('https://johnsapan.io'),
   title: {
-    default: 'John Robin Sapan',
+    default: ' Home | John Robin Sapan',
     template: '%s | John Robin Sapan',
   },
   description: 'Developer, writer, and creator.',
