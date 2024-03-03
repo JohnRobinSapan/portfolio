@@ -6,6 +6,7 @@ import Timeline from './components/timeline';
 import Skill from './components/skill';
 import { aboutMe, skills, experiences, certifications, interests } from './db/place-holder';
 import EmailButton from './components/email-button'
+import ContactForm from './components/contact-form'
 import Link from 'next/link';
 
 const sideNavItems = {
@@ -124,10 +125,10 @@ export default function Page() {
             <div id='contact'>
               <div>
                 <h1>Contact {aboutMe.name}</h1>
-                <p className="phone-number-link">
-                  Phone Number: 1 (437)-989-8315
+                <p>
+                  Please provide your name, email, and message to John Robin Sapan!
                 </p>
-                <EmailButton email="robinsapan@outlook.com" subject="Inquiry via John Sapan Contact Page" body="I'm interested in your services." />
+                <ContactForm />
 
               </div>
             </div>

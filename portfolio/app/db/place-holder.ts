@@ -1,6 +1,8 @@
 const aboutMe = {
     name: 'John Robin Sapan',
     title: 'Software Engineer',
+    email:'robinsapan@outlook.com',
+    phone:'1 (437)-989-8315',
     desc: `I am a skilled developer in C#, Java, SQL, ASP.NET, HTML5, CSS, and JavaScript,
 with expertise in software design patterns. Proficient in deploying
 applications on web servers, utilizing version control, and

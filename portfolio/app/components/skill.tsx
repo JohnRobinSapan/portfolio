@@ -1,5 +1,5 @@
-interface Skill {
-    type: string,
+type Skill = {
+    type: string
     list: string[]
 };
 
