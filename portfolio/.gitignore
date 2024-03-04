@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# Custom
+place-holder.ts
+
+
 # next.js
 /.next/
 /out/

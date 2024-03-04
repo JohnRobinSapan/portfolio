@@ -4,7 +4,6 @@ import nodemailer from 'nodemailer'
 import { z } from 'zod';
 import { aboutMe } from 'app/db/place-holder'
 
-
 export type State = {
     errors?: {
         name?: string[];
@@ -70,19 +69,23 @@ export async function sendEmail(prevState: State, formData: FormData) {
         text: `You have a new submission from: ${name} (${from}) \n\nMessage: ${message}`, // plain text body
     };
 
-
     // Send the email
     try {
         await transporter.sendMail(mailOptions);
+        mailOptions.to = from;
+        mailOptions.text = `You have a new submission to: ${aboutMe.name} (${email}) \n\nMessage: ${message}`; // plain text body
+        await transporter.sendMail(mailOptions);
+
     }
     catch (error) {
 
         return {
-            message: 'Database Error: Failed to Create Invoice.',
+            message: 'Failed to send email.',
         };
     }
 
     return {
-        message: 'Email successfully sent!',
+        message: 'Email successfully sent! You will receive a confirmation email.',
     };
 };
+

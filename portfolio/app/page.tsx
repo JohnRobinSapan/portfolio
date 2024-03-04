@@ -108,7 +108,6 @@ export default function Page() {
               </div>
             </div>
 
-
             <div id='interests' >
               <div>
                 {interests.map((interest, index) => {

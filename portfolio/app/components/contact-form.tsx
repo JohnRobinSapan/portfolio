@@ -65,11 +65,13 @@ export default function ContactForm() {
                     </div>
                     <div className="md:w-2/3"></div>
                 </div>
-                {/* {submitted && (
-                    <div className="text-center mt-4 text-green-500">
-                        Thank you for contacting us!
-                    </div>
-                )} */}
+                <div id="message-error" aria-live="polite" aria-atomic="true">
+                    {
+                        <p className="mt-2 text-sm text-red-500" key={state?.message}>
+                            {state?.message}
+                        </p>
+                    }
+                </div>
             </form>
         </div>
     );
