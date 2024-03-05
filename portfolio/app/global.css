@@ -19,6 +19,11 @@
   --sh-entity: #e25a1c;
 }
 
+.active-scroll-spy {
+  background-color: blueviolet;
+  border-radius: 15px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --sh-class: #4c97f8;
@@ -30,6 +35,14 @@
 
 html {
   min-width: 360px;
+}
+
+body {
+  position: relative;
+}
+
+.prose-default {
+  @apply prose prose-neutral dark:prose-invert;
 }
 
 .prose .anchor {
@@ -55,7 +68,7 @@ html {
   content: '#';
 }
 
-.prose *:hover > .anchor {
+.prose *:hover>.anchor {
   @apply visible;
 }
 
@@ -82,17 +95,30 @@ html {
   @apply m-0;
 }
 
-.prose h2,
-h3,
-h4 {
-  @apply font-medium tracking-tighter !important;
+.prose> :first-child > div {
+  @apply min-h-screen;
 }
+
 
 .prose strong {
   @apply font-medium;
 }
 
-.prose > :first-child {
+h1,
+h2,
+h3,
+h4 {
+  @apply font-medium tracking-tighter !important;
+}
+
+.flex-1 h4,
+.flex-1 h3,
+.flex-1 h2,
+.flex-1 h1 {
+  @apply my-5;
+}
+
+.prose> :first-child {
   /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
@@ -103,8 +129,10 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Remove Safari input shadow on mobile */
@@ -127,7 +155,7 @@ table {
   white-space: nowrap;
 }
 
-.prose .callout > p {
+.prose .callout>p {
   margin: 0 !important;
 }
 

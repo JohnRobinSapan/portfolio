@@ -167,9 +167,10 @@ let components = {
 
 export function CustomMDX(props) {
   return (
-    <MDXRemote
+    < MDXRemote
       {...props}
-      components={{ ...components, ...(props.components || {}) }}
+      components={{ ...components, ...(props.components || {}) }
+      }
     />
   );
 }

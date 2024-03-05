@@ -12,7 +12,7 @@ export const metadata = {
 export default function GuestbookPage() {
   return (
     <section>
-      <h1 className="font-medium text-2xl mb-8 tracking-tighter">
+      <h1 className="text-2xl mb-8">
         sign my guestbook
       </h1>
       <Suspense>
