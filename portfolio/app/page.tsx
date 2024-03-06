@@ -1,13 +1,14 @@
 'use client'
-import SideNav from './components/sidenav';
-import ScrollSpy from "react-ui-scrollspy";
+import Link from 'next/link';
 import Image from 'next/image';
+import ScrollSpy from "react-ui-scrollspy";
+import SideNav from './components/sidenav';
 import Timeline from './components/timeline';
 import Skill from './components/skill';
-import { aboutMe, skills, experiences, certifications, interests } from './db/place-holder';
-import EmailButton from './components/email-button'
 import ContactForm from './components/contact-form'
-import Link from 'next/link';
+import { aboutMe, skills, experiences, certifications, interests } from './db/place-holder';
+import logo from './logo.jpg'
+import sheridan from 'public/images/home/sheridan_background.webp'
 
 const sideNavItems = {
   'Summary': { href: 'summary' },
@@ -26,7 +27,7 @@ export default function Page() {
       <div className='flex flex-row items-center'>
         <div className='flex flex-1 justify-center'>
           <Image
-            src="/opengraph-image.jpg "
+            src={logo}
             width={400}
             height={400}
             className="hidden md:block "
@@ -64,7 +65,7 @@ export default function Page() {
                     Experience & Education
                   </h1>
                   <Image
-                    src="/images/home/sheridan_background.webp "
+                    src={sheridan}
                     width={400}
                     height={400}
                     className="hidden md:block rounded-lg object-cover w-full h-auto"
