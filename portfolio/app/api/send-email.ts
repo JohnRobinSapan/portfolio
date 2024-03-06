@@ -28,6 +28,7 @@ const SendEmail = FormSchema.omit({ id: true, to: true, subject: true, date: tru
 
 export async function sendEmail(prevState: State, formData: FormData) {
 
+
     const validatedFields = SendEmail.safeParse({
         name: formData.get('name'),
         from: formData.get('from'),
@@ -71,6 +72,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
 
     // Send the email
     try {
+        var submitMessage = 'Email successfully sent! You will receive a confirmation email.';
         await transporter.sendMail(mailOptions);
         mailOptions.to = from;
         mailOptions.text = `You have a new submission to: ${aboutMe.name} (${email}) \n\nMessage: ${message}`; // plain text body
@@ -78,14 +80,11 @@ export async function sendEmail(prevState: State, formData: FormData) {
 
     }
     catch (error) {
-
-        return {
-            message: 'Failed to send email.',
-        };
+        submitMessage = 'Failed to send email.'
+        console.error(submitMessage, error);
     }
-
     return {
-        message: 'Email successfully sent! You will receive a confirmation email.',
+        message: submitMessage,
     };
 };
 

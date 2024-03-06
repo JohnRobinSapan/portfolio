@@ -123,13 +123,9 @@ export default function Page() {
             </div>
 
             <div id='contact'>
-              <div>
+              <div className='w-full max-w-2xl mx-auto'>
                 <h1>Contact {aboutMe.name}</h1>
-                <p>
-                  Please provide your name, email, and message to John Robin Sapan!
-                </p>
                 <ContactForm />
-
               </div>
             </div>
           </ScrollSpy>

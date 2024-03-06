@@ -1,6 +1,7 @@
 'use client'
-import { useFormState } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 import { sendEmail } from 'app/api/send-email'
+import Submit from './submit'
 
 
 export default function ContactForm() {
@@ -9,8 +10,8 @@ export default function ContactForm() {
     const [state, dispatch] = useFormState(sendEmail, initialState);
 
     return (
-        <div className="container mx-auto px-4">
-            <form action={dispatch} className="w-full max-w-lg mx-auto">
+        <div className="container mx-auto">
+            <form action={dispatch} className="w-full max-w-lg">
                 <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full px-3">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="name">
@@ -57,11 +58,7 @@ export default function ContactForm() {
                 </div>
                 <div className="md:flex md:items-center">
                     <div className="md:w-1/3">
-                        <button
-                            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                            type="submit">
-                            Send
-                        </button>
+                        <Submit />
                     </div>
                     <div className="md:w-2/3"></div>
                 </div>

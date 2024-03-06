@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     default: ' Home | John Robin Sapan',
     template: '%s | John Robin Sapan',
   },
-  description: 'Developer, writer, and creator.',
+  description: 'Developer',
   openGraph: {
     title: 'John Robin Sapan',
-    description: 'Developer, writer, and creator.',
+    description: 'Developer',
     url: 'https://johnsapan.io',
     siteName: 'John Robin Sapan',
     locale: 'en_US',

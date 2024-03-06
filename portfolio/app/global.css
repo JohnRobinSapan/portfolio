@@ -95,6 +95,7 @@ body {
   @apply m-0;
 }
 
+
 .prose> :first-child > div {
   @apply min-h-screen;
 }
