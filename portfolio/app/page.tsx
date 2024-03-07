@@ -24,30 +24,34 @@ const sideNavItems = {
 export default function Page() {
   return (
     <section >
-      <div className='flex flex-row items-center'>
-        <div className='flex flex-1 justify-center'>
-          <Image
-            src={logo}
-            width={400}
-            height={400}
-            className="hidden md:block "
-            alt={'Picture of ' + aboutMe.name}
-          />
-        </div>
-        <div className='flex-1'>
-          <h1 className="text-6xl">{aboutMe.name}</h1>
-          <h2 className='text-2xl'>{aboutMe.title}</h2>
-          <Link href='#contact'
-            className="px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8">
-            Contact
-          </Link>
-        </div>
-      </div>
-      <div className='flex flex-row mt-64'>
+
+
+      <div className='flex flex-row'>
         <SideNav {...sideNavItems} />
+
         <div className="prose prose-neutral dark:prose-invert flex-1 max-w-none">
           <ScrollSpy useBoxMethod={false} scrollThrottle={100} >
-            <div id='summary'>
+
+            <div id='summary' className='flex flex-col justify-center'>
+              <div className='flex flex-1  flex-row items-center'>
+                <div className='flex flex-1 justify-center'>
+                  <Image
+                    src={logo}
+                    width={400}
+                    height={400}
+                    className="hidden md:block "
+                    alt={'Picture of ' + aboutMe.name}
+                  />
+                </div>
+                <div className='flex-1'>
+                  <h1 className="text-6xl">{aboutMe.name}</h1>
+                  <h2 className='text-2xl'>{aboutMe.title}</h2>
+                  <Link href='#contact'
+                    className="px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8">
+                    Contact
+                  </Link>
+                </div>
+              </div>
               <div className='flex flex-col flex-1 items-center'>
                 <h2>
                   About Me

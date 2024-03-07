@@ -96,9 +96,10 @@ body {
 }
 
 
-.prose> :first-child > div {
+.prose> :first-child>div:not(:last-child) {
   @apply min-h-screen;
 }
+
 
 
 .prose strong {
