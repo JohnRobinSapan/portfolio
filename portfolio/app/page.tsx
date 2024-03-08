@@ -32,8 +32,11 @@ export default function Page() {
         <div className="prose prose-neutral dark:prose-invert flex-1 max-w-none">
           <ScrollSpy useBoxMethod={false} scrollThrottle={100} >
 
-            <div id='summary' className='flex flex-col justify-center'>
-              <div className='flex flex-1  flex-row items-center'>
+            {/* TODO: Add pictures of myself
+              Add art/pictures/graphics
+            */}
+            <div id='summary'>
+              <div className='flex flex-1 flex-row items-center'>
                 <div className='flex flex-1 justify-center'>
                   <Image
                     src={logo}
@@ -47,7 +50,7 @@ export default function Page() {
                   <h1 className="text-6xl">{aboutMe.name}</h1>
                   <h2 className='text-2xl'>{aboutMe.title}</h2>
                   <Link href='#contact'
-                    className="px-3 py-2 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 mb-8">
+                    className="shadow bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-purple-400 no-underline">
                     Contact
                   </Link>
                 </div>
@@ -60,9 +63,10 @@ export default function Page() {
                   {aboutMe.desc}
                 </p>
               </div>
+              <hr className="hr" />
             </div>
 
-            <div id='experience-education'>
+            <div id='experience-education' >
               <div className='flex xl:flex-row md:flex-col'>
                 <div className='flex-initial w-[33.33vw] items-center'>
                   <h1>
@@ -86,8 +90,13 @@ export default function Page() {
                   })}
                 </div>
               </div>
+              <hr className="hr" />
             </div>
 
+            {/* TODO: Finish skills 
+              Add art/pictures/graphics
+
+            */}
             <div id='skills' >
               <div>
                 <h1>Skills</h1>
@@ -99,8 +108,13 @@ export default function Page() {
                   );
                 })}
               </div>
+              <hr className="hr" />
             </div>
 
+            {/* TODO: Finish certifications 
+                Add art/pictures/graphics
+
+            */}
             <div id='certifications' >
               <div>
                 {certifications.map((cert, index) => {
@@ -111,8 +125,13 @@ export default function Page() {
                   );
                 })}
               </div>
+              <hr className="hr" />
             </div>
 
+            {/* TODO: Finish interests 
+                Add art/pictures/graphics
+
+            */}
             <div id='interests' >
               <div>
                 {interests.map((interest, index) => {
@@ -124,8 +143,14 @@ export default function Page() {
                 })}
 
               </div>
+              <hr className="hr" />
             </div>
 
+            {/* TODO: Finish contacts
+              Add art/pictures/graphics
+              Prevent bots
+                - Captcha
+            */}
             <div id='contact'>
               <div className='w-full max-w-2xl mx-auto'>
                 <h1>Contact {aboutMe.name}</h1>

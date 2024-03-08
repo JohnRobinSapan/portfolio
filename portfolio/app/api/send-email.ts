@@ -13,6 +13,7 @@ export type State = {
     message?: string | null;
 };
 
+// Email schema
 const FormSchema = z.object({
     id: z.string(),
     name: z.string({ invalid_type_error: 'Please enter your name.', }),
@@ -25,10 +26,7 @@ const FormSchema = z.object({
 
 const SendEmail = FormSchema.omit({ id: true, to: true, subject: true, date: true });
 
-
 export async function sendEmail(prevState: State, formData: FormData) {
-
-
     const validatedFields = SendEmail.safeParse({
         name: formData.get('name'),
         from: formData.get('from'),
@@ -77,6 +75,8 @@ export async function sendEmail(prevState: State, formData: FormData) {
         mailOptions.to = from;
         mailOptions.text = `You have a new submission to: ${aboutMe.name} (${email}) \n\nMessage: ${message}`; // plain text body
         await transporter.sendMail(mailOptions);
+
+        // TODO: Add emails to db
 
     }
     catch (error) {

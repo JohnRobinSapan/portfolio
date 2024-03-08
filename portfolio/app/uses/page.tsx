@@ -6,6 +6,10 @@ export const metadata: Metadata = {
     "Here's what tech I'm currently using for coding, videos, and music.",
 };
 
+
+// TODO: replace page
+
+
 export default function UsesPage() {
   return (
     <section>
