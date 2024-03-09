@@ -96,13 +96,12 @@ body {
 }
 
 
-.prose> :first-child>div:not(:last-child) {
+.prose> :first-child>div {
   @apply min-h-screen my-6 flex flex-col justify-center;
-
 }
 
 .hr {
-  @apply my-0 border-neutral-100 dark:border-neutral-800;
+  @apply my-0 border-neutral-100 dark:border-neutral-800 mt-auto;
 }
 
 .prose strong {
@@ -167,4 +166,3 @@ table {
 .title {
   text-wrap: balance;
 }
-

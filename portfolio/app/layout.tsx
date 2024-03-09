@@ -65,7 +65,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased mb-40 mx-4 mt-8 flex flex-col">
         <Navbar />
-        <main className="flex-auto min-w-0 mt-12 mx-52 px-2 md:px-0 ">
+        <main className="flex-auto min-w-0 mt-12 2xl:mx-52 md:ml-52 px-2 md:px-0 ">
           {children}
         </main>
         <Analytics />
