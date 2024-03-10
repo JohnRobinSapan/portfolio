@@ -15,8 +15,7 @@ const sideNavItems = {
   'Experience & Education': { href: 'experience-education' },
   'Skills': { href: 'skills' },
   'Certifications': { href: 'certifications' },
-  // 'Languages & Frameworks': { href: 'languages-frameworks' },
-  'Interests': { href: 'interests' },
+  // 'Interests': { href: 'interests' },
   'Contact': { href: 'contact' }
 };
 
@@ -29,7 +28,7 @@ export default function Page() {
       <div className='flex flex-row'>
         <SideNav {...sideNavItems} />
 
-        <div className="prose prose-neutral dark:prose-invert flex-1 max-w-none">
+        <div className="prose prose-neutral dark:prose-invert flex-1 max-w-none ">
           <ScrollSpy useBoxMethod={false} scrollThrottle={100} >
 
             {/* TODO: Add pictures of myself
@@ -37,20 +36,19 @@ export default function Page() {
             */}
             <div id='summary'>
               <div className='flex flex-1 flex-row items-center'>
-                <div className='flex flex-1 justify-center'>
+                <div className='flex flex-1 justify-center max-md:hidden'>
                   <Image
                     src={logo}
                     width={400}
                     height={400}
-                    className="hidden md:block "
                     alt={'Picture of ' + aboutMe.name}
                   />
                 </div>
                 <div className='flex-1'>
-                  <h1 className="text-6xl">{aboutMe.name}</h1>
+                  <h1 className="md:text-6xl">{aboutMe.name}</h1>
                   <h2 className='text-2xl'>{aboutMe.title}</h2>
                   <Link href='#contact'
-                    className="shadow bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-purple-400 no-underline">
+                    className="shadow bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-purple-400">
                     Contact
                   </Link>
                 </div>
@@ -67,8 +65,8 @@ export default function Page() {
             </div>
 
             <div id='experience-education' >
-              <div className='flex xl:flex-row md:flex-col'>
-                <div className='flex-initial w-[33.33vw] items-center'>
+              <div className='md:flex xl:flex-row md:flex-col'>
+                <div>
                   <h1>
                     Experience & Education
                   </h1>
@@ -76,7 +74,7 @@ export default function Page() {
                     src={sheridan}
                     width={400}
                     height={400}
-                    className="hidden md:block rounded-lg object-cover w-full h-auto"
+                    className="hidden md:block rounded-lg object-cover w-[33.33vw] h-auto "
                     alt="Picture of Sheridan College"
                   />
                 </div>
@@ -97,8 +95,8 @@ export default function Page() {
               Add art/pictures/graphics
 
             */}
-            <div id='skills' >
-              <div>
+            <div id='skills'>
+              <div className='mt-auto mb-5'>
                 <h1>Skills</h1>
                 {skills.map((skill, index) => {
                   return (
@@ -116,7 +114,7 @@ export default function Page() {
 
             */}
             <div id='certifications' >
-              <div>
+              <div className='my-auto'>
                 {certifications.map((cert, index) => {
                   return (
                     <li key={index}>
@@ -131,9 +129,8 @@ export default function Page() {
             {/* TODO: Finish interests 
                 Add art/pictures/graphics
 
-            */}
             <div id='interests' >
-              <div>
+              <div className='my-auto'>
                 {interests.map((interest, index) => {
                   return (
                     <li key={index}>
@@ -145,6 +142,7 @@ export default function Page() {
               </div>
               <hr className="hr" />
             </div>
+            */}
 
             {/* TODO: Finish contacts
               Add art/pictures/graphics
@@ -153,7 +151,7 @@ export default function Page() {
             */}
             <div id='contact'>
               <div className='w-full max-w-2xl mx-auto'>
-                <h1>Contact {aboutMe.name}</h1>
+                <h1 className='max-sm:text-3xl'>Contact {aboutMe.name}</h1>
                 <ContactForm />
               </div>
             </div>

@@ -81,4 +81,3 @@ export async function deleteGuestbookEntries(selectedEntries: string[]) {
   revalidatePath('/guestbook');
 }
 
-// TODO: Insert emails to db

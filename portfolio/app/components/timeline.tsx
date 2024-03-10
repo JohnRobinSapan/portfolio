@@ -11,8 +11,8 @@ export default function Timeline(timelineItem: TimelineItem) {
   const { date, company, position, experience } = timelineItem;
 
   return (
-    <div className='flex flex-row'>
-      <div className='flex-none w-80 text-center'>
+    <div className='md:flex flex-row'>
+      <div className='flex-none w-80 md:text-center'>
         <h3>
           {date}
         </h3>

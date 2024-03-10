@@ -62,6 +62,7 @@ export default function ContactForm() {
                     </div>
                     <div className="md:w-2/3"></div>
                 </div>
+                {/* TODO: Customize popup message */}
                 <div id="message-error" aria-live="polite" aria-atomic="true">
                     {
                         <p className="mt-2 text-sm text-red-500" key={state?.message}>
