@@ -23,8 +23,6 @@ const sideNavItems = {
 export default function Page() {
   return (
     <section >
-
-
       <div className='flex flex-row'>
         <SideNav {...sideNavItems} />
 
@@ -33,6 +31,7 @@ export default function Page() {
 
             {/* TODO: Add pictures of myself
               Add art/pictures/graphics
+              Add resume download/view
             */}
             <div id='summary'>
               <div className='flex flex-1 flex-row items-center'>
@@ -64,6 +63,11 @@ export default function Page() {
               <hr className="hr" />
             </div>
 
+            {/* TODO: 
+            Add graphics
+              - Vertical line
+              - Fix image
+            */}
             <div id='experience-education' >
               <div className='md:flex xl:flex-row md:flex-col'>
                 <div>
@@ -146,6 +150,7 @@ export default function Page() {
 
             {/* TODO: Finish contacts
               Add art/pictures/graphics
+              Add GitHub and LinkedIn component
               Prevent bots
                 - Captcha
             */}
