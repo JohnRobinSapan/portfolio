@@ -18,7 +18,7 @@ export default function ContactForm() {
             <form action={(formData) => {
                 dispatch(formData);
                 setShow(true);
-            }} className="w-full max-w-lg">
+            }} className="w-full max-w-lg max-md:mx-auto">
                 <Input id='name' type='text' placeholder='Your name' />
                 <Input id='email' type='email' placeholder='your@email.com' />
                 <TextArea id="message" />

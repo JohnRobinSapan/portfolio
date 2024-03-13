@@ -8,6 +8,7 @@
   "dependencies": {
     "@codesandbox/sandpack-react": "2.12.0",
     "@googleapis/youtube": "^13.1.0",
+    "@react-pdf/renderer": "^3.3.8",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",
@@ -26,6 +27,7 @@
     "postgres": "^3.4.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-pdf": "^7.7.1",
     "react-tweet": "3.2.0",
     "react-ui-scrollspy": "^2.3.0",
     "sharp": "^0.33.2",
@@ -35,6 +37,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "canvas": "^2.11.2",
     "encoding": "^0.1.13"
   }
 }

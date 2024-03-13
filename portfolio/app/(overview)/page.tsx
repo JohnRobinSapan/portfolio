@@ -1,14 +1,22 @@
 'use client'
-import Link from 'next/link';
 import Image from 'next/image';
 import ScrollSpy from "react-ui-scrollspy";
-import SideNav from './components/sidenav';
-import Timeline from './components/timeline';
-import Skill from './components/skill';
-import ContactForm from './components/contact-form'
-import { aboutMe, skills, experiences, certifications, interests } from './db/place-holder';
-import logo from './logo.jpg'
+import SideNav from 'app/components/sidenav';
+import Timeline from 'app/components/timeline';
+import Skill from 'app/components/skill';
+import ContactForm from 'app/components/contact-form'
+import LinkButton from 'app/components/link-button'
+import {
+  aboutMe,
+  skills,
+  experiences,
+  certifications,
+  // interests,
+} from 'app/db/place-holder';
+import logo from 'app/logo.jpg'
 import sheridan from 'public/images/home/sheridan_background.webp'
+
+
 
 const sideNavItems = {
   'Summary': { href: 'summary' },
@@ -46,10 +54,15 @@ export default function Page() {
                 <div className='flex-1'>
                   <h1 className="md:text-6xl">{aboutMe.name}</h1>
                   <h2 className='text-2xl'>{aboutMe.title}</h2>
-                  <Link href='#contact'
-                    className="shadow bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-purple-400">
-                    Contact
-                  </Link>
+                  <div className='flex'>
+                    <LinkButton href='/resume'>
+                      View Resume
+                    </LinkButton>
+                    <LinkButton href='#contact'>
+                      Contact
+                    </LinkButton>
+
+                  </div>
                 </div>
               </div>
               <div className='flex flex-col flex-1 items-center'>
