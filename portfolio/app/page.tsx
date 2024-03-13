@@ -13,8 +13,8 @@ import sheridan from 'public/images/home/sheridan_background.webp'
 const sideNavItems = {
   'Summary': { href: 'summary' },
   'Experience & Education': { href: 'experience-education' },
-  'Skills': { href: 'skills' },
-  'Certifications': { href: 'certifications' },
+  'Skills & Certifications': { href: 'skills' },
+  // 'Certifications': { href: 'certifications' },
   // 'Interests': { href: 'interests' },
   'Contact': { href: 'contact' }
 };
@@ -100,15 +100,27 @@ export default function Page() {
 
             */}
             <div id='skills'>
-              <div className='mt-auto mb-5'>
-                <h1>Skills</h1>
-                {skills.map((skill, index) => {
-                  return (
-                    <div key={index}>
-                      <Skill  {...skill} />
-                    </div>
-                  );
-                })}
+              <div className="md:flex mt-auto mb-5">
+                <div className='mx-auto'>
+                  <h1>Skills</h1>
+                  {skills.map((skill, index) => {
+                    return (
+                      <div key={index}>
+                        <Skill  {...skill} />
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className='mx-auto'>
+                  <h1>Certifications</h1>
+                  {certifications.map((cert, index) => {
+                    return (
+                      <div key={index}>
+                        <Skill  {...cert} />
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
               <hr className="hr" />
             </div>
@@ -116,19 +128,11 @@ export default function Page() {
             {/* TODO: Finish certifications 
                 Add art/pictures/graphics
 
-            */}
             <div id='certifications' >
-              <div className='my-auto'>
-                {certifications.map((cert, index) => {
-                  return (
-                    <li key={index}>
-                      {cert}
-                    </li>
-                  );
-                })}
-              </div>
+
               <hr className="hr" />
             </div>
+            */}
 
             {/* TODO: Finish interests 
                 Add art/pictures/graphics

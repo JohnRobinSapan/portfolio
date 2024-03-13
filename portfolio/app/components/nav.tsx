@@ -11,9 +11,9 @@ const navItems = {
   '/work': {
     name: 'work',
   },
-  '/blog': {
-    name: 'blog',
-  },
+  // '/blog': {
+  //   name: 'blog',
+  // },
   // '/guestbook': {
   //   name: 'guestbook',
   // },

@@ -7,7 +7,6 @@ type Skill = {
 };
 
 
-
 export default function Skills(skill: Skill) {
     const { type, list } = skill;
     return (
