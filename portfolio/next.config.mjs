@@ -5,10 +5,6 @@ export const sql = postgres(process.env.POSTGRES_URL, {
 });
 
 const nextConfig = {
-  webpack: (config) => {
-    config.resolve.alias.canvas = false;
-    return config;
-  },
   experimental: {
     ppr: true,
     useLightningcss: true,
@@ -36,6 +32,10 @@ const nextConfig = {
         headers: securityHeaders,
       },
     ];
+  },
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+    return config;
   },
 };
 

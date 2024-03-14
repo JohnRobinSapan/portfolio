@@ -6,10 +6,13 @@ import clsx from 'clsx';
 
 const navItems = {
   '/': {
-    name: 'home',
+    name: 'Home',
   },
   '/work': {
-    name: 'work',
+    name: 'Work',
+  },
+  '/resume': {
+    name: 'Resume',
   },
   // '/blog': {
   //   name: 'blog',
@@ -23,7 +26,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className='fixed tracking-tight flex-none'>
+    <div className='tracking-tight flex-none'>
       <nav
         className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
         id="nav">

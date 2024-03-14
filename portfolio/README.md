@@ -17,7 +17,6 @@ This application requires Node.js v18.17+.
 git clone https://github.com/johnrobinsapan/portfolio.git
 cd portfolio
 bun install
-bun run setup # Remove all of my personal information
 bun dev
 ```
 

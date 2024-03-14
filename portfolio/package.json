@@ -2,8 +2,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build && npm run postinstall",
+    "build-only": "next build",
+    "start": "next start",
+    "postinstall": "bun ./postinstall.mjs"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "2.12.0",

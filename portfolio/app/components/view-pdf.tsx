@@ -1,21 +1,16 @@
 "use client";
 
-import {
-    BlobProvider,
-} from "@react-pdf/renderer";
-import { useRef } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
 import Image from 'next/image'
+import { useState, useCallback } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+import useResizeObserver from 'app/hooks/useResizeObserver'
 import spinner from 'public/spinner.svg'
 
 
-// //this due a Worker not found error
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    "pdfjs-dist/build/pdf.worker.min.js",
-    import.meta.url
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
+
 
 type Props = {
     document: any;
@@ -35,20 +30,39 @@ const LoadingScreen = () => (
     </div>
 );
 
+const resizeObserverOptions = {};
+const maxWidth = 1200;
+
+
 export default function PdfExport(props: Props) {
     const { document } = props;
     const { url, loading } = document;
 
-    const parentRef = useRef<HTMLDivElement>(null);
-    
+    const [parentRef, setParentRef] = useState<HTMLElement | null>(null);
+    const [containerWidth, setContainerWidth] = useState<number>();
+
+
+    const onResize = useCallback<ResizeObserverCallback>((entries) => {
+        const [entry] = entries;
+
+        if (entry) {
+            setContainerWidth(entry.contentRect.width);
+        }
+    }, []);
+
+
+    useResizeObserver(parentRef, resizeObserverOptions, onResize);
+
+
     return (
-        <div id="pdf" ref={parentRef} className={props.className + ""}>
-            <Document file={url} loading={loading ? <LoadingScreen /> : null}>
+        <div id="pdf" ref={setParentRef} className={`${props.className} mx-auto max-w-screen-xl`}>
+            <Document file={url} loading={loading ? <LoadingScreen /> : null} >
+                {/* <button>Download {maxWidth} {containerWidth}</button> */}
                 <Page
                     loading={loading ? <LoadingScreen /> : null}
                     pageNumber={1}
                     error={"Error"}
-                    width={parentRef.current?.clientWidth}
+                    width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
                 />
             </Document>
         </div>

@@ -9,7 +9,9 @@ export default function Layout({
 }) {
   return (
     <div>
+      <div className='fixed'>
       <Navbar />
+      </div>
       <main className="flex-auto min-w-0 mt-12 2xl:mx-52 md:ml-52 px-2 md:px-0 ">
         {children}
       </main>
