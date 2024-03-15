@@ -26,17 +26,17 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className='tracking-tight flex-none'>
+    <div className='tracking-tight flex-none w-screen shadow bg-black -mx-2 -mt-2'>
       <nav
-        className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+        className="flex flex-row items-start relative px-2 py-2 md:overflow-auto scroll-pr-6 md:relative"
         id="nav">
-        <div className="flex flex-row space-x-0">
+        <div className="flex flex-row space-x-2">
           {Object.entries(navItems).map(([path, { name }]) => {
             return (
               <Link
                 key={path}
                 href={path}
-                className={clsx("transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2",
+                className={clsx("transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle text-center relative py-1 px-2", // Remove ml
                   {
                     'active-scroll-spy': pathname === path,
                   })}>

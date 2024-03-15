@@ -7,7 +7,7 @@ export default function Layout({
 }) {
     return (
         <div>
-            <div className='2xl:fixed mb-2'>
+            <div>
                 <Navbar />
             </div>
             <main>

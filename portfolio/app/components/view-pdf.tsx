@@ -1,13 +1,13 @@
 "use client";
 
 import Image from 'next/image'
-import { useState, useCallback } from "react";
+import { useState, useRef } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
-import useResizeObserver from 'app/hooks/useResizeObserver'
+import useResizeObserver from '@react-hook/resize-observer'
 import spinner from 'public/spinner.svg'
-
+import LinkButton from 'app/components/link-button'
 
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
@@ -30,39 +30,34 @@ const LoadingScreen = () => (
     </div>
 );
 
-const resizeObserverOptions = {};
-const maxWidth = 1200;
-
 
 export default function PdfExport(props: Props) {
     const { document } = props;
     const { url, loading } = document;
 
-    const [parentRef, setParentRef] = useState<HTMLElement | null>(null);
-    const [containerWidth, setContainerWidth] = useState<number>();
+    const sheetContentRef = useRef(null);
+    const [pageWidth, setPageWidth] = useState(0);
 
+    const handleResize = (entry) => {
+        const { width } = entry.contentRect;
+        const margin = 0; // Adjust this margin as necessary
+        setPageWidth(width - margin);
+    };
 
-    const onResize = useCallback<ResizeObserverCallback>((entries) => {
-        const [entry] = entries;
-
-        if (entry) {
-            setContainerWidth(entry.contentRect.width);
-        }
-    }, []);
-
-
-    useResizeObserver(parentRef, resizeObserverOptions, onResize);
+    useResizeObserver(sheetContentRef, handleResize);
 
 
     return (
-        <div id="pdf" ref={setParentRef} className={`${props.className} mx-auto max-w-screen-xl`}>
-            <Document file={url} loading={loading ? <LoadingScreen /> : null} >
-                {/* <button>Download {maxWidth} {containerWidth}</button> */}
+        <div id="pdf" ref={sheetContentRef} className={`${props.className} flex flex-col mx-auto max-w-screen-lg items-center`}>
+            <LinkButton href={url} target='_blank' rel='noopener'>
+                Download Resume
+            </LinkButton>
+            <Document file={url} loading={loading ? <LoadingScreen /> : null}>
                 <Page
                     loading={loading ? <LoadingScreen /> : null}
                     pageNumber={1}
                     error={"Error"}
-                    width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
+                    width={pageWidth}
                 />
             </Document>
         </div>

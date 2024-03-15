@@ -12,7 +12,7 @@ export default function Layout({
       <div className='fixed'>
       <Navbar />
       </div>
-      <main className="flex-auto min-w-0 mt-12 2xl:mx-52 md:ml-52 px-2 md:px-0 ">
+      <main className="flex-auto min-w-0 mt-12 2xl:mx-52 lg:ml-52 px-2 md:px-0 ">
         {children}
       </main>
       <Analytics />

@@ -60,7 +60,7 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased mx-2 mt-4 flex flex-col">
+      <body className="antialiased mx-2 mt-2 flex flex-col">
         {children}
       </body>
     </html>

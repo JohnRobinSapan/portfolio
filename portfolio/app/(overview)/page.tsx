@@ -55,7 +55,7 @@ export default function Page() {
                   <h1 className="md:text-6xl">{aboutMe.name}</h1>
                   <h2 className='text-2xl'>{aboutMe.title}</h2>
                   <div className='flex'>
-                    <LinkButton href='/resume'>
+                    <LinkButton href='/resume' className='mr-4'>
                       View Resume
                     </LinkButton>
                     <LinkButton href='#contact'>
@@ -82,7 +82,7 @@ export default function Page() {
               - Fix image
             */}
             <div id='experience-education' >
-              <div className='md:flex xl:flex-row md:flex-col'>
+              <div className='md:flex xl:flex-row md:flex-col mt-auto'>
                 <div>
                   <h1>
                     Experience & Education
