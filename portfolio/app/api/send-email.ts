@@ -4,7 +4,13 @@ import nodemailer from 'nodemailer'
 import { z } from 'zod';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
+import path from 'path';
 
+// This gives you the absolute path to your project's root directory
+const rootDir = path.resolve('.');
+
+// Construct the absolute path for the logo.jpg file in the public directory
+const logoImagePath = path.join(rootDir, 'public', 'logo.jpg');
 
 export type State = {
     errors?: {
@@ -105,7 +111,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
         mailOptions.text = `You have a new submission to: ${aboutMe.name} (${aboutMe.email}) \n\nMessage: ${message}`; // plain text body
         mailOptions.attachments = [{
             filename: 'logo.jpg',
-            path: 'app/logo.jpg',
+            path: logoImagePath,
             cid: `logo@cid` //same cid value as in the html img src
         }];
         mailOptions.html = `
