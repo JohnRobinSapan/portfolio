@@ -1,6 +1,4 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjohnsapan%2Fjohnsapan.io)
-
-# johnsapan.io
+# johnsapan.com
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [Postgres](https://vercel.com/postgres)
@@ -20,7 +18,7 @@ bun install
 bun dev
 ```
 
-Create a `.env.local` file similar to [`.env.example`](https://github.com/johnrobinsapan/portfolio/blob/main/.env.example).
+Create a `.env.local` file similar to [`.env.example`](https://github.com/JohnRobinSapan/portfolio/blob/main/portfolio/.env.example).
 
 ## Database Schema
 
@@ -66,5 +64,3 @@ CREATE TABLE IF NOT EXISTS emails (
 1. You are free to use this code as inspiration.
 2. Please do not copy it directly.
 3. Crediting the author is appreciated.
-
-Please remove all of my personal information (blog posts, images, etc.) by running `bun run setup`.

@@ -2,11 +2,11 @@ import './global.css';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { SandpackCSS } from 'app/(overview)/blog/[slug]/sandpack';
+import { SandpackCSS } from 'app/(overview)/_blog/[slug]/sandpack';
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://johnsapan.io'),
+  metadataBase: new URL('https://johnsapan.com'),
   title: {
     default: ' Home | John Robin Sapan',
     template: '%s | John Robin Sapan',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'John Robin Sapan',
     description: 'Developer',
-    url: 'https://johnsapan.io',
+    url: 'https://johnsapan.com',
     siteName: 'John Robin Sapan',
     locale: 'en_US',
     type: 'website',
