@@ -4,16 +4,14 @@ import nodemailer from 'nodemailer'
 import { z } from 'zod';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
-import path from 'path';
 
 
-// if (process.env.VERCEL_ENV) {
-//     var logoImagePath = path.resolve('public/logo.jpg');
+if (process.env.VERCEL_ENV) {
+    var logoImagePath = `${process.env.VERCEL_URL}/logo.jpg`
 
-// } else {
-//     var logoImagePath = 'public/logo.jpg';
-// }
-var logoImagePath = path.resolve('public/logo.jpg');
+} else {
+    var logoImagePath = 'public/logo.jpg';
+}
 
 
 export type State = {
