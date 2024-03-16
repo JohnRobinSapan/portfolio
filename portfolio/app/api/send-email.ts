@@ -4,13 +4,15 @@ import nodemailer from 'nodemailer'
 import { z } from 'zod';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
-import path from 'path';
 
-// This gives you the absolute path to your project's root directory
-const rootDir = path.resolve('.');
 
-// Construct the absolute path for the logo.jpg file in the public directory
-const logoImagePath = path.join(rootDir, 'public', 'logo.jpg');
+if (process.env.VERCEL_ENV) {
+    var logoImagePath = 'logo.jpg';
+} else {
+    var logoImagePath = 'public/logo.jpg';
+}
+
+
 
 export type State = {
     errors?: {
@@ -68,7 +70,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
     }
     const recipient = process.env.SMTP_EMAIL;
     const pass = process.env.SMTP_PASS;
- 
+
     // console.log(name, from, message);
     // console.log(host, email, pass);
 
