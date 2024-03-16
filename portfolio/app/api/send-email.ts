@@ -7,7 +7,7 @@ import { sql } from 'app/db/postgres';
 
 
 if (process.env.VERCEL_ENV) {
-    var logoImagePath = `${process.env.VERCEL_URL}/logo.jpg`
+    var logoImagePath = `https://${process.env.VERCEL_URL}/logo.jpg`
 
 } else {
     var logoImagePath = 'public/logo.jpg';
