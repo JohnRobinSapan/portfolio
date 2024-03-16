@@ -13,7 +13,7 @@ import {
   certifications,
   // interests,
 } from 'app/db/place-holder';
-import logo from 'app/api/logo.jpg'
+import logo from 'public/logo.jpg'
 import sheridan from 'public/images/home/sheridan_background.webp'
 
 
