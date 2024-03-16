@@ -2,10 +2,7 @@ import './global.css';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Navbar } from './components/nav';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { SandpackCSS } from './blog/[slug]/sandpack';
+import { SandpackCSS } from 'app/(overview)/blog/[slug]/sandpack';
 
 
 export const metadata: Metadata = {
@@ -14,10 +11,10 @@ export const metadata: Metadata = {
     default: ' Home | John Robin Sapan',
     template: '%s | John Robin Sapan',
   },
-  description: 'Developer, writer, and creator.',
+  description: 'Developer',
   openGraph: {
     title: 'John Robin Sapan',
-    description: 'Developer, writer, and creator.',
+    description: 'Developer',
     url: 'https://johnsapan.io',
     siteName: 'John Robin Sapan',
     locale: 'en_US',
@@ -63,15 +60,8 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased mb-40 mx-4 mt-8 flex flex-col">
-        <div className='lg:mx-auto'>
-          <Navbar />
-        </div>
-        <main className="flex-auto min-w-0 mt-6 px-2 md:px-0 ">
-          {children}
-        </main>
-        <Analytics />
-        <SpeedInsights />
+      <body className="antialiased mx-2 mt-2 flex flex-col">
+        {children}
       </body>
     </html>
   );

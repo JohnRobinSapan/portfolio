@@ -3,6 +3,8 @@ import { getGuestbookEntries } from 'app/db/queries';
 import { redirect } from 'next/navigation';
 import Form from './form';
 
+// TODO: replace page
+
 export const metadata = {
   title: 'Admin',
 };

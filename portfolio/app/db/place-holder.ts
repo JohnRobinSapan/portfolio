@@ -1,8 +1,8 @@
 const aboutMe = {
     name: 'John Robin Sapan',
     title: 'Software Engineer',
-    email:'robinsapan@outlook.com',
-    phone:'1 (437)-989-8315',
+    email: 'robinsapan@outlook.com',
+    phone: '1 (437)-989-8315',
     desc: `I am a skilled developer in C#, Java, SQL, ASP.NET, HTML5, CSS, and JavaScript,
 with expertise in software design patterns. Proficient in deploying
 applications on web servers, utilizing version control, and
@@ -96,11 +96,13 @@ const experiences = [
     }];
 
 const certifications = [
-    `AZ-900 - Microsoft Certified:
-        Azure Fundamentals
-        `,
-    `Develop an ASP.NET Core web
-    app that consumes an API`
+    {
+        type: 'Microsoft Certifications',
+        list: [
+            'AZ-900 - Microsoft Certified: Azure Fundamentals',
+            'Develop an ASP.NET Core web app that consumes an API',
+        ],
+    },
 ];
 
 const interests = [

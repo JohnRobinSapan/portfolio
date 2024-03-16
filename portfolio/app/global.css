@@ -41,6 +41,7 @@ body {
   position: relative;
 }
 
+
 .prose-default {
   @apply prose prose-neutral dark:prose-invert;
 }
@@ -59,8 +60,9 @@ body {
   @apply visible;
 }
 
-.prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+.prose a,
+button {
+  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] no-underline;
 }
 
 .prose .anchor:after {
@@ -71,6 +73,7 @@ body {
 .prose *:hover>.anchor {
   @apply visible;
 }
+
 
 .prose pre {
   @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900;
@@ -95,10 +98,14 @@ body {
   @apply m-0;
 }
 
-.prose> :first-child > div {
-  @apply min-h-screen;
+
+.prose> :first-child>div {
+  @apply min-h-screen my-6 flex flex-col justify-center;
 }
 
+.hr {
+  @apply my-0 border-neutral-100 dark:border-neutral-800 mt-auto;
+}
 
 .prose strong {
   @apply font-medium;

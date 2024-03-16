@@ -80,3 +80,4 @@ export async function deleteGuestbookEntries(selectedEntries: string[]) {
   revalidatePath('/admin');
   revalidatePath('/guestbook');
 }
+

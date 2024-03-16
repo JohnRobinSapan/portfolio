@@ -17,7 +17,6 @@ This application requires Node.js v18.17+.
 git clone https://github.com/johnrobinsapan/portfolio.git
 cd portfolio
 bun install
-bun run setup # Remove all of my personal information
 bun dev
 ```
 
@@ -26,14 +25,14 @@ Create a `.env.local` file similar to [`.env.example`](https://github.com/johnro
 ## Database Schema
 
 ```sql
-CREATE TABLE redirects (
+CREATE TABLE IF NOT EXISTS redirects (
   id SERIAL PRIMARY KEY,
   source VARCHAR(255) NOT NULL,
   destination VARCHAR(255) NOT NULL,
   permanent BOOLEAN NOT NULL
 );
 
-CREATE TABLE guestbook (
+CREATE TABLE IF NOT EXISTS guestbook (
   id SERIAL PRIMARY KEY,
   email VARCHAR(255) NOT NULL,
   body TEXT NOT NULL,
@@ -42,10 +41,24 @@ CREATE TABLE guestbook (
   updated_at TIMESTAMP
 );
 
-CREATE TABLE views (
+CREATE TABLE IF NOT EXISTS views (
   slug VARCHAR(255) PRIMARY KEY,
   count INT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS views (
+  slug VARCHAR(255) PRIMARY KEY,
+  count INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS emails (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    from_email VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    date TIMESTAMP NOT NULL
+);
+
 ```
 
 ## License

@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function SideNav(navItems: Object) {
     return (
-        <aside className="-ml-[8px] mb-16 tracking-tight flex-none mr-5">
-            <div className="lg:sticky lg:top-52">
-                <div className="flex h-full flex-col px-3 py-4 md:px-2">
+        <aside className="fixed -ml-52 mb-16 tracking-tight flex-none">
+            <div className="flex flex-col h-[60vh]">
+                <div className="flex flex-1 h-full flex-col justify-center">
                     {Object.entries(navItems).map(([path, { href }]) => {
                         return (
                             <Link
