@@ -5,7 +5,7 @@ export default function robots() {
         userAgent: '*',
       },
     ],
-    sitemap: 'https://johnsapan.io/sitemap.xml',
-    host: 'https://johnsapan.io',
+    sitemap: 'https://johnsapan.com/sitemap.xml',
+    host: 'https://johnsapan.com',
   };
 }

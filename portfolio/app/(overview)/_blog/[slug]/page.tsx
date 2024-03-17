@@ -23,8 +23,8 @@ export async function generateMetadata({
     image,
   } = post.metadata;
   let ogImage = image
-    ? `https://johnsapan.io${image}`
-    : `https://johnsapan.io/og?title=${title}`;
+    ? `https://johnsapan.com${image}`
+    : `https://johnsapan.com/og?title=${title}`;
 
   return {
     title,
@@ -34,7 +34,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://johnsapan.io/blog/${post.slug}`,
+      url: `https://johnsapan.com/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -104,9 +104,9 @@ export default function Blog({ params }) {
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
-              ? `https://johnsapan.io${post.metadata.image}`
-              : `https://johnsapan.io/og?title=${post.metadata.title}`,
-            url: `https://johnsapan.io/blog/${post.slug}`,
+              ? `https://johnsapan.com${post.metadata.image}`
+              : `https://johnsapan.com/og?title=${post.metadata.title}`,
+            url: `https://johnsapan.com/blog/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'John Robin Sapan',

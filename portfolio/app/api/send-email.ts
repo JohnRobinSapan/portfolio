@@ -2,9 +2,17 @@
 
 import nodemailer from 'nodemailer'
 import { z } from 'zod';
+import { list } from '@vercel/blob';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
 
+
+export async function getImage(prefix) {
+    const image = await list({ prefix });
+    return image.blobs[0]?.url;
+}
+
+var logoImagePath = 'public/logo.jpg';
 
 export type State = {
     errors?: {
@@ -40,12 +48,16 @@ const FormSchema = z.object({
 const SendEmail = FormSchema.omit({ id: true, date: true });
 
 export async function sendEmail(prevState: State, formData: FormData) {
+
+    if (process.env.VERCEL_ENV && !logoImagePath.startsWith('http')) {
+        logoImagePath = await getImage('logo') || logoImagePath;
+    }
+
     const validatedFields = SendEmail.safeParse({
         name: formData.get('name'),
         email: formData.get('email'),
         message: formData.get('message'),
     });
-
     if (!validatedFields.success) {
         console.error(validatedFields.error.flatten().fieldErrors);
         return {
@@ -62,7 +74,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
     }
     const recipient = process.env.SMTP_EMAIL;
     const pass = process.env.SMTP_PASS;
- 
+
     // console.log(name, from, message);
     // console.log(host, email, pass);
 
@@ -87,6 +99,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
 
 
     try {
+        // throw error;
         // Send email
         var submitMessage = 'Email successfully sent! You will receive a confirmation email.';
         await transporter.sendMail(mailOptions);
@@ -105,7 +118,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
         mailOptions.text = `You have a new submission to: ${aboutMe.name} (${aboutMe.email}) \n\nMessage: ${message}`; // plain text body
         mailOptions.attachments = [{
             filename: 'logo.jpg',
-            path: 'app/logo.jpg',
+            path: logoImagePath,
             cid: `logo@cid` //same cid value as in the html img src
         }];
         mailOptions.html = `

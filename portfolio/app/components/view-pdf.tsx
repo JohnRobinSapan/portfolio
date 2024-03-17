@@ -49,7 +49,7 @@ export default function PdfExport(props: Props) {
 
     return (
         <div id="pdf" ref={sheetContentRef} className={`${props.className} flex flex-col mx-auto max-w-screen-lg items-center`}>
-            <LinkButton href={url} target='_blank' rel='noopener'>
+            <LinkButton href={url} target='_blank' rel='noopener' prefetch={false}>
                 Download Resume
             </LinkButton>
             <Document file={url} loading={loading ? <LoadingScreen /> : null}>

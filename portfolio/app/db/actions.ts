@@ -50,8 +50,8 @@ export async function saveGuestbookEntry(formData: FormData) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'guestbook@johnsapan.io',
-      to: 'me@johnsapan.io',
+      from: 'guestbook@johnsapan.com',
+      to: 'me@johnsapan.com',
       subject: 'New Guestbook Entry',
       html: `<p>Email: ${email}</p><p>Message: ${body}</p>`,
     }),
@@ -65,7 +65,7 @@ export async function deleteGuestbookEntries(selectedEntries: string[]) {
   let session = await getSession();
   let email = session.user?.email as string;
 
-  if (email !== 'me@johnsapan.io') {
+  if (email !== 'me@johnsapan.com') {
     throw new Error('Unauthorized');
   }
 
