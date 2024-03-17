@@ -6,14 +6,13 @@ import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
 import path from 'path';
 
+var logoImagePath = 'public/logo.jpg';
+
 if (process.env.VERCEL_ENV) {
-    const folderPath = path.resolve(process.cwd(), 'public');
-    var logoImagePath = path.join(folderPath, 'logo.jpg');
-
-} else {
-    var logoImagePath = 'public/logo.jpg';
+    console.log(process.cwd());
+    console.log(__dirname);
+    logoImagePath = path.join(process.cwd(), 'logo.jpg');
 }
-
 
 export type State = {
     errors?: {
