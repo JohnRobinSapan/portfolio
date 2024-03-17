@@ -9,9 +9,8 @@ import path from 'path';
 var logoImagePath = 'public/logo.jpg';
 
 if (process.env.VERCEL_ENV) {
-    console.log(process.cwd());
-    console.log(__dirname);
-    logoImagePath = path.join(process.cwd(), 'logo.jpg');
+    const resolvePublicPath = path.resolve(process.cwd(), './public');
+    logoImagePath = path.join(resolvePublicPath, 'logo.jpg');
 }
 
 export type State = {
@@ -53,7 +52,6 @@ export async function sendEmail(prevState: State, formData: FormData) {
         email: formData.get('email'),
         message: formData.get('message'),
     });
-
     if (!validatedFields.success) {
         console.error(validatedFields.error.flatten().fieldErrors);
         return {
