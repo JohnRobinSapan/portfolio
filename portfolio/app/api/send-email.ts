@@ -2,16 +2,17 @@
 
 import nodemailer from 'nodemailer'
 import { z } from 'zod';
+import { list } from '@vercel/blob';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
-import path from 'path';
+
+
+export async function getImage(prefix) {
+    const image = await list({ prefix });
+    return image.blobs[0]?.url;
+}
 
 var logoImagePath = 'public/logo.jpg';
-
-if (process.env.VERCEL_ENV) {
-    const resolvePublicPath = path.resolve(process.cwd(), './public');
-    logoImagePath = path.join(resolvePublicPath, 'logo.jpg');
-}
 
 export type State = {
     errors?: {
@@ -47,6 +48,11 @@ const FormSchema = z.object({
 const SendEmail = FormSchema.omit({ id: true, date: true });
 
 export async function sendEmail(prevState: State, formData: FormData) {
+
+    if (process.env.VERCEL_ENV && !logoImagePath.startsWith('http')) {
+        logoImagePath = await getImage('logo') || logoImagePath;
+    }
+
     const validatedFields = SendEmail.safeParse({
         name: formData.get('name'),
         email: formData.get('email'),
@@ -93,6 +99,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
 
 
     try {
+        // throw error;
         // Send email
         var submitMessage = 'Email successfully sent! You will receive a confirmation email.';
         await transporter.sendMail(mailOptions);
