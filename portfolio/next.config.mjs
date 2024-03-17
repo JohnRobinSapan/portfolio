@@ -8,9 +8,9 @@ const nextConfig = {
   experimental: {
     ppr: true,
     useLightningcss: true,
-  },
-  outputFileTracingIncludes: {
-    '/api': ['./public/**/*'],
+    outputFileTracingIncludes: {
+      '/api': ['./public/**/*'],
+    },
   },
   async redirects() {
     if (!process.env.POSTGRES_URL) {
