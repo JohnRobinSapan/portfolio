@@ -7,7 +7,8 @@ import { sql } from 'app/db/postgres';
 import path from 'path';
 
 if (process.env.VERCEL_ENV) {
-    var logoImagePath =  path.join(process.cwd(), 'public/logo.jpg');
+    const folderPath = path.resolve(process.cwd(), 'public');
+    var logoImagePath = path.join(folderPath, 'logo.jpg');
 
 } else {
     var logoImagePath = 'public/logo.jpg';
