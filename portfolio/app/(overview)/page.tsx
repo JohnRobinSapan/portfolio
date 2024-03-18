@@ -39,7 +39,8 @@ export default function Page() {
 
             {/* TODO: Add pictures of myself
               Add art/pictures/graphics
-              Add resume download/view
+              COMPLETED: Add resume download/view
+              Add loading animation/transition
             */}
             <div id='summary'>
               <div className='flex flex-1 flex-row items-center'>
@@ -76,8 +77,7 @@ export default function Page() {
               <hr className="hr" />
             </div>
 
-            {/* TODO: 
-            Add graphics
+            {/* TODO: Add graphics
               - Vertical line
               - Fix image
             */}
@@ -91,7 +91,7 @@ export default function Page() {
                     src={sheridan}
                     width={400}
                     height={400}
-                    className="hidden md:block rounded-lg object-cover w-[33.33vw] h-auto "
+                    className="hidden md:block rounded-lg object-cover w-[33.33vw] h-auto" // TODO: Move to background behind text
                     alt="Picture of Sheridan College"
                   />
                 </div>
