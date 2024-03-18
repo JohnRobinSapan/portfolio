@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbo",
+    "dev-t": "next dev --turbo",
     "build": "next build",
     "start": "next start"
   },
@@ -22,9 +23,10 @@
     "clsx": "^2.0.0",
     "dotenv": "^16.4.2",
     "geist": "1.2.2",
-    "next": "^14.2.0-canary.26",
+    "next": "^14.2.0-canary.29",
     "next-auth": "5.0.0-beta.3",
     "next-mdx-remote": "^4.4.1",
+    "next-themes": "^0.3.0",
     "nodemailer": "^6.9.11",
     "postcss": "latest",
     "postgres": "^3.4.3",
