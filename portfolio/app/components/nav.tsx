@@ -22,6 +22,7 @@ const navItems = {
   // },
 };
 
+// TODO: Add theme switcher and social media links/icons
 export function Navbar() {
   const pathname = usePathname();
 

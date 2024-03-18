@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         "This is my resume.",
 };
 
-
+// TODO: Add admin page for replacing/updating resume
 export default function Page() {
     const props = {
         document: {
