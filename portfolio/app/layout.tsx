@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { SandpackCSS } from 'app/(overview)/_blog/[slug]/sandpack';
-
+import { ThemeProvider } from 'next-themes'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://johnsapan.com'),
@@ -52,7 +52,6 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        'text-black bg-white dark:text-white dark:bg-[#111010]',
         GeistSans.variable,
         GeistMono.variable
       )}
@@ -60,8 +59,10 @@ export default function RootLayout({
       <head>
         <SandpackCSS />
       </head>
-      <body className="antialiased mx-2 mt-2 flex flex-col">
-        {children}
+      <body className="antialiased mx-2 mt-2 flex flex-col bg-gray-100 dark:bg-[#111010]">
+        <ThemeProvider attribute="class">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

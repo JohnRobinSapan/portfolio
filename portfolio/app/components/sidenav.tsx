@@ -13,7 +13,7 @@ export default function SideNav(navItems: Object) {
                                 key={href}
                                 data-to-scrollspy-id={href}
                                 href={`#${href}`}
-                                className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2">
+                                className="nav-link transition-all rounded-2xl hover:text-neutral-200 flex align-middle relative my-1 py-1 px-2">
                                 {path}
                             </Link>
                         );

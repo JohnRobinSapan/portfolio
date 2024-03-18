@@ -50,6 +50,7 @@ export default function Page() {
                     width={400}
                     height={400}
                     alt={'Picture of ' + aboutMe.name}
+                    className="rounded-full"
                   />
                 </div>
                 <div className='flex-1'>
