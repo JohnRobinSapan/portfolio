@@ -50,7 +50,7 @@ export default function Page() {
                     width={400}
                     height={400}
                     alt={'Picture of ' + aboutMe.name}
-                    className="rounded-full"
+                    className="rounded-full shadow-2xl"
                   />
                 </div>
                 <div className='flex-1'>
@@ -68,13 +68,12 @@ export default function Page() {
                 </div>
               </div>
               <div className='flex flex-col flex-1 items-center'>
-                <h2>
-                  About Me
-                </h2>
-                <p className="prose-default">
-                  {aboutMe.desc}
-                </p>
+                <div className="rounded-3xl rounded-3xl shadow-lg  text-center">
+                  <h2>About Me</h2>
+                  <p className="prose-default">{aboutMe.desc}</p>
+                </div>
               </div>
+
               <hr className="hr" />
             </div>
 
@@ -92,7 +91,7 @@ export default function Page() {
                     src={sheridan}
                     width={400}
                     height={400}
-                    className="hidden md:block rounded-lg object-cover w-[33.33vw] h-auto" // TODO: Move to background behind text
+                    className="hidden md:block shadow-xl rounded-xl object-cover w-[33.33vw] h-auto" // TODO: Move to background behind text
                     alt="Picture of Sheridan College"
                   />
                 </div>
