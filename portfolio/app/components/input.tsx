@@ -11,7 +11,7 @@ export default function Input({ id, type, placeholder }: { id: string, type: str
                     {id}
                 </label>
                 <input
-                    className={`appearance-none block w-full dark:bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 ${pending ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`appearance-none shadow-inner block w-full dark:bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 ${pending ? 'opacity-50 cursor-not-allowed' : ''}`}
                     id={id}
                     type={type}
                     placeholder={placeholder}
