@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import typography from '@tailwindcss/typography';
+import tailwindcss from '@headlessui/tailwindcss'
 
 export default {
   darkMode: 'class',
@@ -7,7 +8,7 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    './content/**/*.mdx', 
+    './content/**/*.mdx',
     './public/**/*.svg'],
   theme: {
     extend: {
@@ -28,5 +29,5 @@ export default {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [typography],
+  plugins: [typography, tailwindcss],
 } satisfies Config;

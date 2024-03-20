@@ -7,7 +7,7 @@ export default function LinkButton({ href, children, className, target, rel, pre
             target={target}
             rel={rel}
             prefetch={prefetch}
-            className={`my-2 shadow-lg bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-purple-400 ${className}`}>
+            className={`my-2 shadow-lg bg-purple-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-purple-400 ${className}`}>
             {children}
         </Link>
     );

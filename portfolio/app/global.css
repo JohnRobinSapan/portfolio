@@ -28,6 +28,11 @@
   .nav-link:not(.active-scroll-spy):hover {
     @apply text-white hover:bg-purple-400;
   }
+
+  .headlessui-active {
+    filter: invert(49%) sepia(43%) saturate(1296%) hue-rotate(160deg) brightness(98%) contrast(95%);
+  }
+
 }
 
 html {

@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { SandpackCSS } from 'app/(overview)/_blog/[slug]/sandpack';
 import { ThemeProvider } from 'next-themes'
+import { Navbar } from 'app/components/nav';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://johnsapan.com'),
@@ -61,6 +62,9 @@ export default function RootLayout({
       </head>
       <body className="antialiased mx-2 mt-2 flex flex-col bg-gray-100 dark:bg-[#111010]">
         <ThemeProvider attribute="class">
+          <div className='z-50 fixed w-full'>
+            <Navbar />
+          </div>
           {children}
         </ThemeProvider>
       </body>

@@ -9,6 +9,11 @@ export const sql = postgres(process.env.POSTGRES_URL, {
 const nextConfig = {
   experimental: {
     ppr: true,
+    outputFileTracingExcludes: {
+      "*": [
+        "**canvas**",
+      ],
+    },
   },
   async redirects() {
     if (!process.env.POSTGRES_URL) {
