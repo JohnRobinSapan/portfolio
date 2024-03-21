@@ -17,6 +17,7 @@ const images = [
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, resolvedTheme, setTheme } = useTheme()
+  let selected = theme != 'system' ? 'headlessui-active' : 'invert';
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -27,13 +28,13 @@ export default function ThemeSwitch() {
   if (!mounted) {
     return (
       <>
-        {images.slice(0, -1).map((image) => (
+        {images.slice(0, -1).map((image, index) => (
           <Image
-            key={image.alt}
+            key={index}
             src={image.src}
             alt={image.alt}
             height={24}
-            className={`${image.className} ${theme != 'system' ? 'headlessui-active' : 'invert'}`}
+            className={`${image.className} ${selected}`}
           />
         ))}
       </>
@@ -45,18 +46,18 @@ export default function ThemeSwitch() {
   return (
     <Listbox value={theme} onChange={e => setTheme(e)}>
       <Listbox.Label className='sr-only'>Theme</Listbox.Label>
-      <Listbox.Button>
+      <Listbox.Button className='h-6'>
         <Image
           src={currentImage.src}
           alt={currentImage.alt}
           height={24}
-          className={`${currentImage.className} ${theme != 'system' ? 'headlessui-active' : 'invert'}`}
+          className={`${currentImage.className} ${selected}`}
         />
       </Listbox.Button>
-      <Listbox.Options className={'absolute right-1 top-11 mt-2 w-36 origin-top-right divide-y divide-neutral-300 dark:divide-neutral-800 rounded-lg bg-gray-100 shadow-lg ring-1 ring-black/5 dark:bg-black '}>
-        {images.map((image) => (
+      <Listbox.Options className={'absolute right-1 top-11 mt-2 w-36 origin-top-right divide-y divide-neutral-300 dark:divide-neutral-800 rounded-lg bg-gray-100 shadow-lg ring-1 ring-black/5 dark:bg-black'}>
+        {images.map((image, index) => (
           <Listbox.Option
-            key={image.alt}
+            key={index}
             value={image.alt.toLowerCase()}
             className='hover:bg-neutral-200 dark:hover:bg-neutral-800 first:rounded-t-lg last:rounded-b-lg'>
             <span className='flex py-1 px-2 ui-selected:headlessui-active'>
