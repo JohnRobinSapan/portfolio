@@ -33,7 +33,7 @@ export default function Page() {
     <section >
       <div className='flex flex-row'>
         <SideNav {...sideNavItems} />
-        <div className="prose prose-neutral dark:prose-invert flex-1 lg:pl-52 max-w-none">
+        <div className="prose prose-neutral dark:prose-invert flex-1 lg:ml-56 max-w-none">
           <ScrollSpy useBoxMethod={false} scrollThrottle={100} >
 
             {/* TODO: Add pictures of myself
@@ -81,27 +81,25 @@ export default function Page() {
               - Fix image
             */}
             <div id='experience-education' >
-              <div className='md:flex md:flex-col mt-auto'>
-                <div>
-                  <h1>
-                    Experience & Education
-                  </h1>
-                  <Image
-                    src={sheridan}
-                    width={400}
-                    height={400}
-                    className="hidden md:block shadow-xl rounded-xl object-cover h-auto" // TODO: Move to background behind text
-                    alt="Picture of Sheridan College"
-                  />
-                </div>
-                <div className='flex-1'>
-                  {experiences.map((experience, index) => {
-                    return (
-                      <div key={index}>
-                        <Timeline {...experience} />
+              <div className='mt-auto'>
+                <h1 className="text-center">
+                  Experience & Education
+                </h1>
+                <div className='bg-education bg bg-fixed bg-no-repeat bg-center rounded-3xl max-sm:-mx-2'>
+                  <div className='backdrop-blur-sm bg-white/60 dark:bg-black/60 rounded-3xl py-2'>
+                    <div className='relative sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]'>
+                      <div className='max-sm:mx-2'>
+                        <div className="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-px bg-slate-800 dark:bg-slate-200 sm:block "></div>
+                        {experiences.map((experience, index) => {
+                          return (
+                            <div key={index}>
+                              <Timeline {...experience} />
+                            </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
+                    </div>
+                  </div>
                 </div>
               </div>
               <hr className="hr" />
@@ -172,7 +170,7 @@ export default function Page() {
             */}
             <div id='contact'>
               <div className='w-full max-w-2xl mx-auto'>
-                <h1 className='max-sm:text-3xl'>Contact {aboutMe.name}</h1>
+                <h1 className='max-sm:text-3xl text-center'>Contact {aboutMe.name}</h1>
                 <ContactForm />
               </div>
             </div>
