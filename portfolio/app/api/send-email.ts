@@ -114,7 +114,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
 
         // Send confirmation email
         mailOptions.to = email;
-        mailOptions.subject = `${aboutMe.name} Confirmation: We've Received Your Message!`; // Subject line
+        mailOptions.subject = `Confirmation: We've Received Your Message!`; // Subject line
         mailOptions.text = `You have a new submission to: ${aboutMe.name} (${aboutMe.email}) \n\nMessage: ${message}`; // plain text body
         mailOptions.attachments = [{
             filename: 'logo.jpg',
@@ -142,7 +142,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
                     <img src="cid:logo@cid" alt="${aboutMe.name} width="100" height="100" style="max-width:100%; height:auto;">
                     <h1>Confirmation: We've Received Your Message!</h1>
                     <p>Dear ${name},</p>
-                    <p>Thank you for reaching out to ${aboutMe.name}! This email is to confirm that we have successfully received your message.</p>
+                    <p>Thank you for contacting me! This email is to confirm that I have successfully received your message.</p>
 
                     <table>
                         <tr>
@@ -163,18 +163,20 @@ export async function sendEmail(prevState: State, formData: FormData) {
                         </tr>
                     </table>
 
-                    <p>${aboutMe.name} will review your message and aim to respond as quickly as possible, typically within 3 business days. If your inquiry is urgent, please call ${aboutMe.phone} for an immediate response.</p>
+                    <p>I will review your message and aim to respond as quickly as possible, typically within 3 business days. If you need a quicker response, feel free to call me at ${aboutMe.phone} — I'll do my best to get back to you promptly.</p>
                     
-                    <p>We appreciate your contact and are here to assist you. Should you have any further questions or need additional information, please do not hesitate to reach out.</p>
+                    <p>In the meantime, you may find some helpful information on my <a href="https://www.johnsapan.com">website</a>.</p>
                     
-                    <p>Thank you for your patience and understanding.</p>
+                    <p>I appreciate your patience and look forward to speaking with you soon.</p>
 
-                    <p>Regards,</p>
+                    <p>Warm regards,</p>
                     <p>${aboutMe.name}<br>
                     ${aboutMe.title}<br>
                     ${aboutMe.phone}<br>
-                    ${aboutMe.email}</p>
-                    <p>P.S. This is an automated response, but rest assured, ${aboutMe.name} will get back to you personally.</p>
+                    ${aboutMe.email}<br>
+                    johnsapan.com</p>
+                    
+                    <p>P.S. This is an automated response, but rest assured, I will get back to you personally.</p>
                 </body>
             </html>`; // html body
         await transporter.sendMail(mailOptions);

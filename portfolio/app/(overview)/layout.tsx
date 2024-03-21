@@ -1,6 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Navbar } from 'app/components/nav';
 
 export default function Layout({
   children,
@@ -8,11 +7,8 @@ export default function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <div className='fixed'>
-      <Navbar />
-      </div>
-      <main className="flex-auto min-w-0 mt-12 2xl:mx-52 lg:ml-52 px-2 md:px-0 ">
+    <div className='overflow-hidden'>
+      <main className="flex-auto mt-12 px-2 md:px-0 max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8 min-h-screen">
         {children}
       </main>
       <Analytics />

@@ -1,4 +1,3 @@
-import { Navbar } from 'app/components/nav';
 
   
 export default function Layout({
@@ -8,10 +7,7 @@ export default function Layout({
 }) {
     return (
         <div>
-            <div>
-                <Navbar />
-            </div>
-            <main>
+            <main className="flex-auto min-w-0 mt-12 min-h-screen">
                 {children}
             </main>
         </div>

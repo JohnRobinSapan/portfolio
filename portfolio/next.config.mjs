@@ -1,4 +1,6 @@
+/** @type {import('next').NextConfig} */
 import postgres from 'postgres';
+
 
 export const sql = postgres(process.env.POSTGRES_URL, {
   ssl: 'allow',
@@ -7,10 +9,11 @@ export const sql = postgres(process.env.POSTGRES_URL, {
 const nextConfig = {
   experimental: {
     ppr: true,
-    useLightningcss: true,
-    // outputFileTracingIncludes: {
-    //   '/api': ['./public/**/*'],
-    // },
+    outputFileTracingExcludes: {
+      "*": [
+        "**canvas**",
+      ],
+    },
   },
   async redirects() {
     if (!process.env.POSTGRES_URL) {
