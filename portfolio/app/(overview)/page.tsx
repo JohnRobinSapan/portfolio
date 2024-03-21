@@ -33,8 +33,7 @@ export default function Page() {
     <section >
       <div className='flex flex-row'>
         <SideNav {...sideNavItems} />
-
-        <div className="prose prose-neutral dark:prose-invert flex-1 max-w-none ">
+        <div className="prose prose-neutral dark:prose-invert flex-1 lg:pl-52 max-w-none">
           <ScrollSpy useBoxMethod={false} scrollThrottle={100} >
 
             {/* TODO: Add pictures of myself
@@ -68,7 +67,7 @@ export default function Page() {
                 </div>
               </div>
               <div className='flex flex-col flex-1 items-center'>
-                <div className="rounded-3xl rounded-3xl shadow-lg  text-center">
+                <div className="rounded-3xl shadow-lg ring ring-black/5 text-center">
                   <h2>About Me</h2>
                   <p className="prose-default">{aboutMe.desc}</p>
                 </div>
@@ -82,7 +81,7 @@ export default function Page() {
               - Fix image
             */}
             <div id='experience-education' >
-              <div className='md:flex xl:flex-row md:flex-col mt-auto'>
+              <div className='md:flex md:flex-col mt-auto'>
                 <div>
                   <h1>
                     Experience & Education
@@ -91,7 +90,7 @@ export default function Page() {
                     src={sheridan}
                     width={400}
                     height={400}
-                    className="hidden md:block shadow-xl rounded-xl object-cover w-[33.33vw] h-auto" // TODO: Move to background behind text
+                    className="hidden md:block shadow-xl rounded-xl object-cover h-auto" // TODO: Move to background behind text
                     alt="Picture of Sheridan College"
                   />
                 </div>

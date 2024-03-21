@@ -5,8 +5,8 @@ import { useFormStatus } from 'react-dom';
 export default function TextArea({ id }: { id: string }) {
     const { pending } = useFormStatus();
     return (
-        <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
+        <div className="flex flex-wrap mb-6">
+            <div className="w-full">
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor={id}>
                     {id}
                 </label>

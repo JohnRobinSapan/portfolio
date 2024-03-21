@@ -7,8 +7,8 @@ export default function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <main className="flex-auto min-w-0 mt-12 2xl:mx-52 lg:ml-52 px-2 md:px-0 h-screen">
+    <div className='overflow-hidden'>
+      <main className="flex-auto mt-12 px-2 md:px-0 max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 min-h-screen">
         {children}
       </main>
       <Analytics />

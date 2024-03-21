@@ -14,11 +14,11 @@ export default function ContactForm() {
     const [show, setShow] = useState(false);
 
     return (
-        <div className="container ">
+        <div className="container mx-auto">
             <form action={(formData) => {
                 dispatch(formData);
                 setShow(true);
-            }} className="w-full ">
+            }}>
                 <Input id='name' type='text' placeholder='Your name' />
                 <Input id='email' type='email' placeholder='your@email.com' />
                 <TextArea id="message" />
