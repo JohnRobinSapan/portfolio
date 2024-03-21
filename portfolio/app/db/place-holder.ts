@@ -61,7 +61,7 @@ const skills = [
 
 const experiences = [
     {
-        date: 'March 2022 - March 2023',
+        date: { start: 'March 2022', end: 'March 2023' },
         company: 'TD Canada Trust, Mississauga',
         position: 'Operations Officer',
         experience: [
@@ -77,7 +77,7 @@ const experiences = [
         ]
     },
     {
-        date: 'January 2019 - January 2020',
+        date: { start: 'January 2019', end: 'January 2020' },
         company: 'Ricoh Canada, Mississauga',
         position: 'Co-op Application Developer  ',
         experience: [
@@ -87,7 +87,7 @@ const experiences = [
         ]
     },
     {
-        date: 'January 2017 - June 2020',
+        date: { start: 'January 2017', end: 'June 2020' },
         company: 'Sheridan College, Brampton',
         position: 'Computer Systems Technician - Software Engineering',
         experience: [

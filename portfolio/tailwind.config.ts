@@ -16,6 +16,9 @@ export default {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)'],
       },
+      backgroundImage: {
+        'education': "url('/images/home/sheridan_background.webp')",
+      },
       typography: {
         quoteless: {
           css: {

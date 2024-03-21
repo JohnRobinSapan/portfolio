@@ -12,7 +12,7 @@ export default async function sitemap() {
     // '/blog',
     // '/guestbook',
     // '/uses',
-    '/work',
+    '/projects',
     '/resume',
   ].map((route) => ({
     url: `https://johnsapan.com${route}`,

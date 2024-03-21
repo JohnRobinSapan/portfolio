@@ -12,13 +12,13 @@
 This application requires Node.js v18.17+.
 
 ```bash
-git clone https://github.com/johnrobinsapan/portfolio.git
+git clone https://github.com/johnsapan/portfolio.git
 cd portfolio
 bun install
 bun dev
 ```
 
-Create a `.env.local` file similar to [`.env.example`](https://github.com/JohnRobinSapan/portfolio/blob/main/portfolio/.env.example).
+Create a `.env.local` file similar to [`.env.example`](https://github.com/JohnSapan/portfolio/blob/main/portfolio/.env.example).
 
 ## Database Schema
 
