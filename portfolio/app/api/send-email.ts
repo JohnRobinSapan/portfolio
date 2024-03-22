@@ -8,6 +8,7 @@ import { sql } from 'app/db/postgres';
 
 
 export async function getImage(prefix) {
+    console.log('fetching image...');
     const image = await list({ prefix });
     return image.blobs[0]?.url;
 }
