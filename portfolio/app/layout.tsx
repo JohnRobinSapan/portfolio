@@ -5,6 +5,8 @@ import { GeistMono } from 'geist/font/mono';
 import { SandpackCSS } from 'app/(overview)/_blog/[slug]/sandpack';
 import { ThemeProvider } from 'next-themes'
 import { Navbar } from 'app/components/nav';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Scroll from 'app/components/scroll';
 
 export const metadata: Metadata = {
@@ -69,6 +71,8 @@ export default function RootLayout({
           </div>
           {children}
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

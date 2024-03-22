@@ -31,10 +31,10 @@ export default function Timeline(timelineItem: TimelineItem) {
           })}
         </ul>
         <div className='hidden lg:block'>
-          <time className="absolute top-0 right-full mr-[calc(6.5rem+1px)] whitespace-nowrap text-center" dateTime={date.end}>
-            {date.start}<br/>
+          <p className="absolute top-0 right-full mr-[calc(6.5rem+1px)] whitespace-nowrap text-center">
+            {date.start}<br />
             {date.end}
-          </time>
+          </p>
         </div>
       </div>
     </div>
