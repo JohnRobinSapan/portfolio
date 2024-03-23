@@ -1,6 +1,6 @@
 import PdfExport from 'app/components/view-pdf'
 import type { Metadata } from 'next';
-
+import UploadForm from 'app/components/upload-form'
 
 export const metadata: Metadata = {
     title: 'Resume',
@@ -18,6 +18,9 @@ export default function Page() {
         filename: 'johnsapan-resume',
     }
     return (
-        <PdfExport {...props} />
+        <section>
+            <UploadForm />
+            <PdfExport {...props} />
+        </section>
     );
 }

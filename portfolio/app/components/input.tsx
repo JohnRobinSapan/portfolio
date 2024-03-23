@@ -2,12 +2,12 @@
 import { useFormStatus } from 'react-dom';
 
 
-export default function Input({ id, type, placeholder }: { id: string, type: string, placeholder: string }) {
+export default function Input({ id, type, placeholder, sr = false }: { id: string, type: string, placeholder?: string, sr?: boolean }) {
     const { pending } = useFormStatus();
     return (
         <div className="flex flex-wrap mb-6">
             <div className="w-full">
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor={id}>
+                <label className={`${sr ? 'sr-only' : ''} block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2`} htmlFor={id}>
                     {id}
                 </label>
                 <input

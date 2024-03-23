@@ -5,6 +5,9 @@ import { z } from 'zod';
 import { list } from '@vercel/blob';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
+import { writeFile } from "fs/promises";
+import path from "path";
+import { extname } from 'path';
 
 
 export async function getImage(prefix) {
@@ -23,6 +26,49 @@ export type State = {
     };
     message?: string | null;
 };
+
+export async function upload(prevState: State, formData: FormData) {
+    const file = formData.get("file") as File;
+    var submitMessage = "No files received.";
+    if (!file) {
+        console.log(submitMessage)
+        return {
+            message: submitMessage,
+        };
+    }
+    // Check file type
+    const fileType = extname(file.name).toLowerCase();
+    if (fileType !== '.pdf') {
+        submitMessage = 'Invalid file type. Only PDF files are allowed.'
+        console.log(submitMessage)
+        return {
+            message: submitMessage,
+        };
+    }
+
+    try {
+        const buffer = Buffer.from(await file.arrayBuffer());
+        const filename = 'johnsapan-resume.pdf'
+        await writeFile(
+            path.join(process.cwd(), "public/" + filename),
+            buffer
+        );
+
+        // File has been successfully written, now perform subsequent actions
+        submitMessage = 'Uploaded PDF successfully'
+        console.log(submitMessage)
+        return {
+            message: submitMessage,
+        };
+    }
+    catch (error) {
+        console.error("Error occured ", error);
+        return {
+            message: 'Failed to upload PDF.',
+        };
+    }
+};
+
 
 type MailOptions = {
     from: string;

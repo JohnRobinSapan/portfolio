@@ -1,5 +1,13 @@
 
-export default function Modal({ message, isOpen, setShow }: { message?: string | null, isOpen: boolean, setShow }) {
+export default function Modal({ message, isOpen, setShow, refresh }: { message?: string | null, isOpen: boolean, setShow, refresh?: boolean }) {
+    const handleClick = refresh
+        ? () => {
+            window.location.reload();
+        }
+        : () => {
+            setShow(false);
+        };
+
     return (<>
         {isOpen && <dialog
             className="fixed left-0 top-0 w-full h-full bg-black bg-opacity-50 z-50 overflow-auto backdrop-blur flex justify-center items-center">
@@ -7,7 +15,7 @@ export default function Modal({ message, isOpen, setShow }: { message?: string |
                 <div className="flex flex-col items-center">
                     <p>{message}</p>
                     <br />
-                    <button type="button" className="shadow bg-red-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-red-400" onClick={() => { setShow(false) }}>Close</button>
+                    <button type="button" className="shadow bg-red-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-red-400" onClick={handleClick}>Close</button>
                 </div>
             </div>
         </dialog>}
