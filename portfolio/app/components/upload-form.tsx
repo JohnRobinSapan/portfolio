@@ -1,16 +1,15 @@
 'use client'
 import { useState } from 'react'
 import { useFormState } from 'react-dom';
-import { sendEmail } from 'app/api/send-email'
+import { upload } from 'app/api/send-email'
 import Submit from './submit'
-import TextArea from './textarea'
 import Input from './input'
 import Modal from './modal'
 
-export default function ContactForm() {
+export default function UploadForm() {
     const initialState = { message: null, errors: {} };
 
-    const [state, dispatch] = useFormState(sendEmail, initialState);
+    const [state, dispatch] = useFormState(upload, initialState);
     const [show, setShow] = useState(false);
 
     return (
@@ -19,11 +18,9 @@ export default function ContactForm() {
                 dispatch(formData);
                 setShow(true);
             }}>
-                <Input id='name' type='text' placeholder='Your name' />
-                <Input id='email' type='email' placeholder='your@email.com' />
-                <TextArea id="message" />
-                <Submit />
-                <Modal isOpen={show} message={state?.message} setShow={setShow} />
+                <Input id='file' type='file' sr />
+                <Submit text='Submit' />
+                <Modal isOpen={show} message={state?.message} setShow={setShow} refresh />
             </form >
         </div >
     );

@@ -2,12 +2,25 @@
 import { useFormStatus } from 'react-dom';
 
 
-export default function Input({ id, type, placeholder }: { id: string, type: string, placeholder: string }) {
+export default function Input({ id, type, placeholder, sr = false }: { id: string, type: string, placeholder?: string, sr?: boolean }) {
     const { pending } = useFormStatus();
+    let autoComplete: string;
+
+    switch (id) {
+        case 'name':
+            autoComplete = 'name';
+            break;
+        case 'email':
+            autoComplete = 'email';
+            break;
+        default:
+            autoComplete = 'off'; // Default behavior when type is not recognized
+            break;
+    }
     return (
         <div className="flex flex-wrap mb-6">
             <div className="w-full">
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor={id}>
+                <label className={`${sr ? 'sr-only' : ''} block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2`} htmlFor={id}>
                     {id}
                 </label>
                 <input
@@ -20,6 +33,7 @@ export default function Input({ id, type, placeholder }: { id: string, type: str
                     aria-disabled={pending}
                     aria-busy={pending}
                     disabled={pending}
+                    autoComplete={autoComplete}
                 />
             </div>
         </div>

@@ -40,13 +40,12 @@ export default function ThemeSwitch() {
       </>
     )
   }
-
   const currentImage = images.find(image => image.alt.toLowerCase() === resolvedTheme) || images[0];
 
   return (
     <Listbox value={theme} onChange={e => setTheme(e)}>
-      <Listbox.Label className='sr-only'>Theme</Listbox.Label>
-      <Listbox.Button className='h-6'>
+      <Listbox.Label className='sr-only' htmlFor='headlessui-listbox-button'>Theme</Listbox.Label>
+      <Listbox.Button className='h-6' id='headlessui-listbox-button'>
         <Image
           src={currentImage.src}
           alt={currentImage.alt}

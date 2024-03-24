@@ -2,17 +2,34 @@
 
 import nodemailer from 'nodemailer'
 import { z } from 'zod';
-import { list } from '@vercel/blob';
+import { list, put } from '@vercel/blob';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
+// import { writeFile } from "fs/promises";
+// import path from "path";
+import { extname } from 'path';
 
 
-export async function getImage(prefix) {
+
+export async function getBlob(prefix) {
+    console.log(`fetching ${prefix}...`);
     const image = await list({ prefix });
     return image.blobs[0]?.url;
 }
 
 var logoImagePath = 'public/logo.jpg';
+var resumeUrl;
+
+export async function getResumeUrl() {
+    // if (
+    //     // process.env.VERCEL_ENV &&
+    //     !resumeUrl.startsWith('http')) {
+
+    resumeUrl = await getBlob('johnsapan-resume');
+    // }
+    // console.log(resumeUrl);
+    return resumeUrl;
+}
 
 export type State = {
     errors?: {
@@ -22,6 +39,62 @@ export type State = {
     };
     message?: string | null;
 };
+
+export async function upload(prevState: State, formData: FormData) {
+    const file = formData.get("file") as File;
+    var submitMessage = "No files received.";
+    if (!file) {
+        console.log(submitMessage)
+        return {
+            message: submitMessage,
+        };
+    }
+    // Check file type
+    const fileType = extname(file.name).toLowerCase();
+    if (fileType !== '.pdf') {
+        submitMessage = 'Invalid file type. Only PDF files are allowed.'
+        console.log(submitMessage)
+        return {
+            message: submitMessage,
+        };
+    }
+
+    try {
+        const buffer = Buffer.from(await file.arrayBuffer());
+        const filename = 'johnsapan-resume.pdf'
+
+        // if (
+        //     // process.env.VERCEL_ENV || 
+        //     resumeUrl.startsWith('http')) {
+        const blob = await put(filename, buffer, {
+            access: 'public',
+            contentType: 'application/pdf',
+            addRandomSuffix: false,
+        });
+        // console.log(blob.url)
+        // }
+        // else {
+        //     await writeFile(
+        //         path.join(process.cwd(), "public/" + filename),
+        //         buffer
+        //     );
+        // }
+
+        // File has been successfully written, now perform subsequent actions
+        submitMessage = 'Uploaded PDF successfully'
+        console.log(submitMessage)
+        return {
+            message: submitMessage,
+        };
+    }
+    catch (error) {
+        console.error("Error occured", error);
+        return {
+            message: 'Failed to upload PDF.',
+        };
+    }
+};
+
 
 type MailOptions = {
     from: string;
@@ -50,7 +123,7 @@ const SendEmail = FormSchema.omit({ id: true, date: true });
 export async function sendEmail(prevState: State, formData: FormData) {
 
     if (process.env.VERCEL_ENV && !logoImagePath.startsWith('http')) {
-        logoImagePath = await getImage('logo') || logoImagePath;
+        logoImagePath = await getBlob('logo') || logoImagePath;
     }
 
     const validatedFields = SendEmail.safeParse({

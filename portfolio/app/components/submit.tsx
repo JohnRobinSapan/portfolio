@@ -2,7 +2,7 @@
 import { useFormStatus } from 'react-dom';
 
 
-export default function Submit() {
+export default function Submit({ text = 'Send' }: { text?: string }) {
     const { pending } = useFormStatus();
     return (
         <button
@@ -11,7 +11,7 @@ export default function Submit() {
             aria-disabled={pending}
             aria-busy={pending}
             disabled={pending} >
-            {pending ? 'Sending' : 'Send'}
+            {pending ? 'Sending' : text}
         </button>
     );
 }
