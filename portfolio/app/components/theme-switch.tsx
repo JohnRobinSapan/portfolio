@@ -41,7 +41,6 @@ export default function ThemeSwitch() {
     )
   }
   const currentImage = images.find(image => image.alt.toLowerCase() === resolvedTheme) || images[0];
-  console.log(mounted)
 
   return (
     <Listbox value={theme} onChange={e => setTheme(e)}>

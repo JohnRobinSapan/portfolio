@@ -12,7 +12,6 @@ import { getResumeUrl } from 'app/api/send-email'
 
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
-
 type Props = {
     document?: any;
     filename?: string;
@@ -31,12 +30,11 @@ const LoadingScreen = () => (
     </div>
 );
 
-
 export default function PdfExport(props: Props) {
     const sheetContentRef = useRef(null);
     const [pageWidth, setPageWidth] = useState(0);
     const [resumeUrl, setResumeUrl] = useState<string | null>(null);
-
+    const isFetchingResume = useRef(false);
 
     const handleResize = (entry) => {
         const { width } = entry.contentRect;
@@ -46,36 +44,37 @@ export default function PdfExport(props: Props) {
 
     useResizeObserver(sheetContentRef, handleResize);
 
-
     useEffect(() => {
-        async function fetchResumeUrl() {
-            try {
-                const url = await getResumeUrl();
-                setResumeUrl(url);
-            } catch (error) {
-                console.error('Error fetching resume URL:', error);
-            }
+        if (!isFetchingResume.current) {
+            isFetchingResume.current = true;
+            const fetchResumeUrl = async () => {
+                try {
+                    let url = localStorage.getItem('resumeUrl') as string;
+                    if (!url) {
+                        url = await getResumeUrl();
+                        localStorage.setItem('resumeUrl', url);
+                    }
+                    setResumeUrl(url);
+                } catch (error) {
+                    console.error('Error fetching resume URL:', error);
+                } finally {
+                    isFetchingResume.current = false;
+                }
+            };
+            fetchResumeUrl();
         }
-        fetchResumeUrl();
     }, []);
 
-
-    const newProps = {
-        ...props,
-        document: {
-            url: resumeUrl as string,
-            loading: resumeUrl === null,
-        },
-    }
-    const { document } = newProps;
-    const { url, loading } = document;
-
+    const documentUrl = resumeUrl ? `${resumeUrl}?timestamp=${Date.now()}` : null;
+    const loading = !documentUrl;
     return (
-        <div id="pdf" ref={sheetContentRef} className={`${newProps.className} flex flex-col mx-auto max-w-screen-lg items-center`}>
-            {url && <LinkButton href={url} target='_blank' rel='noopener' prefetch={false}>
-                Download Resume
-            </LinkButton>}
-            <Document file={url} loading={loading ? <LoadingScreen /> : null}>
+        <div id="pdf" ref={sheetContentRef} className={`${props.className} flex flex-col mx-auto max-w-screen-lg items-center`}>
+            {documentUrl &&
+                <LinkButton href={documentUrl} target='_blank' rel='noopener' prefetch={false}>
+                    Download Resume
+                </LinkButton>
+            }
+            <Document file={documentUrl} loading={loading ? <LoadingScreen /> : null}>
                 <Page
                     loading={loading ? <LoadingScreen /> : null}
                     pageNumber={1}

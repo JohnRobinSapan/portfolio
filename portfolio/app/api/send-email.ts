@@ -5,9 +5,10 @@ import { z } from 'zod';
 import { list, put } from '@vercel/blob';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
-import { writeFile } from "fs/promises";
-import path from "path";
+// import { writeFile } from "fs/promises";
+// import path from "path";
 import { extname } from 'path';
+
 
 
 export async function getBlob(prefix) {
@@ -17,12 +18,16 @@ export async function getBlob(prefix) {
 }
 
 var logoImagePath = 'public/logo.jpg';
-var resumeUrl = '/johnsapan-resume.pdf';
+var resumeUrl;
 
 export async function getResumeUrl() {
-    if (process.env.VERCEL_ENV && !resumeUrl.startsWith('http')) {
-        resumeUrl = await getBlob('resume') || '/johnsapan-resume.pdf';
-    }
+    // if (
+    //     // process.env.VERCEL_ENV &&
+    //     !resumeUrl.startsWith('http')) {
+
+    resumeUrl = await getBlob('johnsapan-resume');
+    // }
+    // console.log(resumeUrl);
     return resumeUrl;
 }
 
@@ -58,18 +63,22 @@ export async function upload(prevState: State, formData: FormData) {
         const buffer = Buffer.from(await file.arrayBuffer());
         const filename = 'johnsapan-resume.pdf'
 
-        if (process.env.VERCEL_ENV && !resumeUrl.startsWith('http')) {
-            await put(filename, buffer, {
-                access: 'public',
-                contentType: 'application/pdf',
-                addRandomSuffix: false
-            });
-        } else {
-            await writeFile(
-                path.join(process.cwd(), "public/" + filename),
-                buffer
-            );
-        }
+        // if (
+        //     // process.env.VERCEL_ENV || 
+        //     resumeUrl.startsWith('http')) {
+        const blob = await put(filename, buffer, {
+            access: 'public',
+            contentType: 'application/pdf',
+            addRandomSuffix: false,
+        });
+        // console.log(blob.url)
+        // }
+        // else {
+        //     await writeFile(
+        //         path.join(process.cwd(), "public/" + filename),
+        //         buffer
+        //     );
+        // }
 
         // File has been successfully written, now perform subsequent actions
         submitMessage = 'Uploaded PDF successfully'
@@ -79,7 +88,7 @@ export async function upload(prevState: State, formData: FormData) {
         };
     }
     catch (error) {
-        console.error("Error occured ", error);
+        console.error("Error occured", error);
         return {
             message: 'Failed to upload PDF.',
         };
