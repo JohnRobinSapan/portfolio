@@ -10,11 +10,8 @@ export const metadata: Metadata = {
 
 // TODO: Add admin page for replacing/updating resume
 export default function Page() {
+
     const props = {
-        document: {
-            url: '/johnsapan-resume.pdf',
-            loading: false,
-        },
         filename: 'johnsapan-resume',
     }
     return (

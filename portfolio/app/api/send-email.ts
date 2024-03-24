@@ -2,7 +2,7 @@
 
 import nodemailer from 'nodemailer'
 import { z } from 'zod';
-import { list } from '@vercel/blob';
+import { list, put } from '@vercel/blob';
 import { aboutMe } from 'app/db/place-holder'
 import { sql } from 'app/db/postgres';
 import { writeFile } from "fs/promises";
@@ -10,13 +10,21 @@ import path from "path";
 import { extname } from 'path';
 
 
-export async function getImage(prefix) {
-    console.log('fetching image...');
+export async function getBlob(prefix) {
+    console.log(`fetching ${prefix}...`);
     const image = await list({ prefix });
     return image.blobs[0]?.url;
 }
 
 var logoImagePath = 'public/logo.jpg';
+var resumeUrl = '/johnsapan-resume.pdf';
+
+export async function getResumeUrl() {
+    if (process.env.VERCEL_ENV && !resumeUrl.startsWith('http')) {
+        resumeUrl = await getBlob('resume') || '/johnsapan-resume.pdf';
+    }
+    return resumeUrl;
+}
 
 export type State = {
     errors?: {
@@ -49,10 +57,19 @@ export async function upload(prevState: State, formData: FormData) {
     try {
         const buffer = Buffer.from(await file.arrayBuffer());
         const filename = 'johnsapan-resume.pdf'
-        await writeFile(
-            path.join(process.cwd(), "public/" + filename),
-            buffer
-        );
+
+        if (process.env.VERCEL_ENV && !resumeUrl.startsWith('http')) {
+            await put(filename, buffer, {
+                access: 'public',
+                contentType: 'application/pdf',
+                addRandomSuffix: false
+            });
+        } else {
+            await writeFile(
+                path.join(process.cwd(), "public/" + filename),
+                buffer
+            );
+        }
 
         // File has been successfully written, now perform subsequent actions
         submitMessage = 'Uploaded PDF successfully'
@@ -97,7 +114,7 @@ const SendEmail = FormSchema.omit({ id: true, date: true });
 export async function sendEmail(prevState: State, formData: FormData) {
 
     if (process.env.VERCEL_ENV && !logoImagePath.startsWith('http')) {
-        logoImagePath = await getImage('logo') || logoImagePath;
+        logoImagePath = await getBlob('logo') || logoImagePath;
     }
 
     const validatedFields = SendEmail.safeParse({
