@@ -16,7 +16,7 @@ export default function Page() {
     }
     return (
         <section>
-            <UploadForm />
+            {/* <UploadForm /> */}
             <PdfExport {...props} />
         </section>
     );

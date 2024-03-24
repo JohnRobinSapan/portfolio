@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-
-
 export default function SideNav(navItems: Object) {
     return (
         <aside className="fixed hidden lg:flex tracking-tight h-full">

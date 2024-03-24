@@ -100,7 +100,7 @@ button {
 }
 
 
-.prose> :first-child>div {
+.prose>:first-child>div {
   @apply min-h-screen my-6 flex flex-col justify-center;
 }
 

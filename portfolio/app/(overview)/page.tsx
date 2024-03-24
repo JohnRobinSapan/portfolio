@@ -1,7 +1,6 @@
-'use client'
 import Image from 'next/image';
-import ScrollSpy from "react-ui-scrollspy";
 import SideNav from 'app/components/sidenav';
+import Sections from '@/app/components/sections';
 import Timeline from 'app/components/timeline';
 import Skill from 'app/components/skill';
 import ContactForm from 'app/components/contact-form'
@@ -14,8 +13,6 @@ import {
   // interests,
 } from 'app/db/place-holder';
 import logo from 'public/logo.jpg'
-import sheridan from 'public/images/home/sheridan_background.webp'
-
 
 
 const sideNavItems = {
@@ -30,17 +27,18 @@ const sideNavItems = {
 
 export default function Page() {
   return (
-    <section >
+    <section>
       <div className='flex flex-row'>
         <SideNav {...sideNavItems} />
-        <div className="prose prose-neutral dark:prose-invert flex-1 lg:ml-56 max-w-none">
-          <ScrollSpy useBoxMethod={false} scrollThrottle={100} >
 
-            {/* TODO: Add pictures of myself
+
+        {/* TODO: Add pictures of myself
               Add art/pictures/graphics
               COMPLETED: Add resume download/view
               Add loading animation/transition
             */}
+        <div className="prose prose-neutral dark:prose-invert flex-1 lg:ml-56 max-w-none">
+          <Sections>
             <div id='summary'>
               <div className='flex flex-1 flex-row items-center'>
                 <div className='flex flex-1 justify-center max-md:hidden'>
@@ -72,9 +70,9 @@ export default function Page() {
                   <p className="prose-default">{aboutMe.desc}</p>
                 </div>
               </div>
-
               <hr className="hr" />
             </div>
+
 
             {/* TODO: Add graphics
               - Vertical line
@@ -174,9 +172,9 @@ export default function Page() {
                 <ContactForm />
               </div>
             </div>
-          </ScrollSpy>
+          </Sections>
         </div>
       </div>
-    </section >
+    </section>
   );
 }
