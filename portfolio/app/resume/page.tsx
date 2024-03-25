@@ -1,6 +1,7 @@
 import PdfExport from 'app/components/view-pdf'
 import type { Metadata } from 'next';
-import UploadForm from 'app/components/upload-form'
+// import UploadForm from 'app/components/upload-form'
+import { Suspense } from 'react';
 
 
 export const metadata: Metadata = {
@@ -16,8 +17,10 @@ export default function Page() {
     }
     return (
         <section>
-            {/* <UploadForm /> */}
-            <PdfExport {...props} />
+            <Suspense fallback={<p>Loading resume...</p>}>
+                {/* <UploadForm /> */}
+                <PdfExport {...props} />
+            </Suspense>
         </section>
     );
 }

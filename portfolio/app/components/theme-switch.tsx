@@ -27,9 +27,10 @@ export default function ThemeSwitch() {
 
   if (!mounted) {
     return (
-      <>
+      <div className='h-6'>
         {images.slice(0, -1).map((image, index) => (
           <Image
+            priority
             key={index}
             src={image.src}
             alt={image.alt}
@@ -37,16 +38,16 @@ export default function ThemeSwitch() {
             className={`${image.className} ${selected}`}
           />
         ))}
-      </>
+      </div>
     )
   }
   const currentImage = images.find(image => image.alt.toLowerCase() === resolvedTheme) || images[0];
-
   return (
     <Listbox value={theme} onChange={e => setTheme(e)}>
       <Listbox.Label className='sr-only' htmlFor='headlessui-listbox-button'>Theme</Listbox.Label>
       <Listbox.Button className='h-6' id='headlessui-listbox-button'>
         <Image
+          priority
           src={currentImage.src}
           alt={currentImage.alt}
           height={24}
@@ -61,6 +62,7 @@ export default function ThemeSwitch() {
             className='hover:bg-neutral-200 dark:hover:bg-neutral-800 first:rounded-t-lg last:rounded-b-lg'>
             <span className='flex py-1 px-2 ui-selected:headlessui-active'>
               <Image
+                priority
                 src={image.src}
                 alt={image.alt}
                 height={24}
