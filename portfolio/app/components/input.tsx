@@ -20,7 +20,7 @@ export default function Input({ id, type, placeholder, sr = false }: { id: strin
     return (
         <div className="flex flex-wrap mb-6">
             <div className="w-full">
-                <label className={`${sr ? 'sr-only' : ''} block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2`} htmlFor={id}>
+                <label className={`${sr ? 'sr-only' : ''} block uppercase tracking-wide text-gray-700 dark:text-gray-200 text-xs font-bold mb-2`} htmlFor={id}>
                     {id}
                 </label>
                 <input

@@ -16,7 +16,7 @@ export default function UsesPage() {
       <h1 className="text-2xl mb-8">
         here's my setup
       </h1>
-      <div className="prose-default">
+      <div className="prose dark:prose-invert">
         <h3 id="computer-office">Computer / Office</h3>
         <ul>
           <li>16&quot; Macbook Pro (2020)</li>

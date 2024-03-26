@@ -37,12 +37,13 @@ export default function Page() {
               COMPLETED: Add resume download/view
               Add loading animation/transition
             */}
-        <div className="prose prose-neutral dark:prose-invert flex-1 lg:ml-56 max-w-none">
+        <div className="prose dark:prose-invert flex-1 lg:ml-56 max-w-none">
           <Sections>
             <div id='summary'>
               <div className='flex flex-1 flex-row items-center'>
                 <div className='flex flex-1 justify-center max-md:hidden'>
                   <Image
+                    priority
                     src={logo}
                     width={400}
                     height={400}
@@ -67,7 +68,7 @@ export default function Page() {
               <div className='flex flex-col flex-1 items-center'>
                 <div className="rounded-3xl shadow-lg ring ring-black/5 text-center">
                   <h2>About Me</h2>
-                  <p className="prose-default">{aboutMe.desc}</p>
+                  <p className="prose dark:prose-invert">{aboutMe.desc}</p>
                 </div>
               </div>
               <hr className="hr" />

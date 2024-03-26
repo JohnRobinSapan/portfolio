@@ -22,15 +22,17 @@ export default function Skills(skill: Skill) {
                 </div>
                 {type}
             </li>
-            <ul className='list-none border-l border-neutral-400 dark:border-neutral-700 my-0'>
-                {list.map((item, index) => {
-                    return (
-                        <li className='my-0' key={index}>
-                            {item}
-                        </li>
-                    );
-                })}
-            </ul>
+            <li className='my-0 px-0'>
+                <ul className='list-none border-l border-neutral-400 dark:border-neutral-700 my-0'>
+                    {list.map((item, index) => {
+                        return (
+                            <li className='my-0' key={index}>
+                                {item}
+                            </li>
+                        );
+                    })}
+                </ul>
+            </li>
         </ul>
     );
 }

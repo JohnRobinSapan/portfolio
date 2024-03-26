@@ -43,10 +43,6 @@ body {
   position: relative;
 }
 
-.prose-default {
-  @apply prose prose-neutral dark:prose-invert;
-}
-
 .prose .anchor {
   @apply absolute invisible no-underline;
 

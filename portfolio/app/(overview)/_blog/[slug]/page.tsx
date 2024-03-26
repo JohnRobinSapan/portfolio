@@ -127,7 +127,7 @@ export default function Blog({ params }) {
           <Views slug={post.slug} />
         </Suspense>
       </div>
-      <article className="prose-default prose-quoteless">
+      <article className="prose dark:prose-invert prose-quoteless">
         <CustomMDX source={post.content} />
       </article>
     </section>
