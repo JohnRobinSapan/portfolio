@@ -1,17 +1,17 @@
 import { ImageResponse } from 'next/og';
-import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-export async function GET(req: NextRequest) {
-  const { searchParams } = req.nextUrl;
-  const postTitle = searchParams.get('title');
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url)
+  const hasTitle = searchParams.get('title');
   const font = fetch(
     new URL('../../public/fonts/kaisei-tokumin-bold.ttf', import.meta.url)
   ).then((res) => res.arrayBuffer());
   const fontData = await font;
 
   return new ImageResponse(
+
     (
       <div
         style={{
@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage: 'url(https://johnsapan.com/og-bg.png)',
+          backgroundImage: 'url(https://johnsapan.com/og-bg.jpg)',
         }}
       >
         <div
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
             whiteSpace: 'pre-wrap',
           }}
         >
-          {postTitle}
+          {hasTitle}
         </div>
       </div>
     ),

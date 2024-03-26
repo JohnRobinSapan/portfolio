@@ -17,7 +17,7 @@ export async function getBlob(prefix) {
     return image.blobs[0]?.url;
 }
 
-var logoImagePath = 'public/logo.jpg';
+var logoImagePath = 'public/logo.webp';
 var resumeUrl;
 
 export async function getResumeUrl() {
@@ -190,7 +190,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
         mailOptions.subject = `Confirmation: We've Received Your Message!`; // Subject line
         mailOptions.text = `You have a new submission to: ${aboutMe.name} (${aboutMe.email}) \n\nMessage: ${message}`; // plain text body
         mailOptions.attachments = [{
-            filename: 'logo.jpg',
+            filename: 'logo.webp',
             path: logoImagePath,
             cid: `logo@cid` //same cid value as in the html img src
         }];

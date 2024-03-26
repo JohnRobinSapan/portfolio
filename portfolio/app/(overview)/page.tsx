@@ -12,7 +12,7 @@ import {
   certifications,
   // interests,
 } from 'app/db/place-holder';
-import logo from 'public/logo.jpg'
+import logo from 'public/logo.webp'
 
 
 const sideNavItems = {
@@ -68,7 +68,7 @@ export default function Page() {
               <div className='flex flex-col flex-1 items-center'>
                 <div className="rounded-3xl shadow-lg ring ring-black/5 text-center">
                   <h2>About Me</h2>
-                  <p className="prose dark:prose-invert">{aboutMe.desc}</p>
+                  <p className="max-w-2xl">{aboutMe.desc}</p>
                 </div>
               </div>
               <hr className="hr" />
