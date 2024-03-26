@@ -2,7 +2,7 @@ import 'app/global.css';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { SandpackCSS } from 'app/(overview)/_blog/[slug]/sandpack';
+// import { SandpackCSS } from 'app/(overview)/_blog/[slug]/sandpack';
 import { ThemeProvider } from 'next-themes'
 import { Navbar } from 'app/components/nav';
 import { Analytics } from '@vercel/analytics/react';
@@ -58,9 +58,9 @@ export default function RootLayout({
       )}
     >
       <Scroll />
-      <head>
+      {/* <head>
         <SandpackCSS />
-      </head>
+      </head> */}
       <body className="antialiased flex flex-col bg-gray-100 dark:bg-[#111010]">
         <ThemeProvider attribute="class">
           <div className='z-50 fixed w-full'>
