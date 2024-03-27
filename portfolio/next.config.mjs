@@ -56,6 +56,7 @@ const ContentSecurityPolicy = `
     connect-src *;
     font-src 'self' data:;
     frame-src 'self' *.codesandbox.io vercel.live;
+    frame-ancestors 'none';
 `;
 
 const securityHeaders = [
@@ -66,10 +67,6 @@ const securityHeaders = [
   {
     key: 'Referrer-Policy',
     value: 'origin-when-cross-origin',
-  },
-  {
-    key: 'X-Frame-Options',
-    value: 'DENY',
   },
   {
     key: 'X-Content-Type-Options',
