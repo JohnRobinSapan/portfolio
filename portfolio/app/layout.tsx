@@ -12,15 +12,15 @@ import Scroll from 'app/components/scroll';
 export const metadata: Metadata = {
   metadataBase: new URL('https://johnsapan.com'),
   title: {
-    default: ' Home | John Robin Sapan',
-    template: '%s | John Robin Sapan',
+    default: ' Home | John Sapan',
+    template: '%s | John Sapan',
   },
   description: 'Developer',
   openGraph: {
-    title: 'John Robin Sapan',
+    title: 'John Sapan',
     description: 'Developer',
     url: 'https://johnsapan.com',
-    siteName: 'John Robin Sapan',
+    siteName: 'John Sapan',
     locale: 'en_US',
     type: 'website',
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: 'John Robin Sapan',
+    title: 'John Sapan',
     card: 'summary_large_image',
   },
 };
