@@ -213,7 +213,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
                 </head>
                 <body>
                     <img src="cid:logo@cid" alt="${aboutMe.name} width="100" height="100" style="max-width:100%; height:auto;">
-                    <h1>Confirmation: We've Received Your Message!</h1>
+                    <h1>Confirmation: Message Received!</h1>
                     <p>Dear ${name},</p>
                     <p>Thank you for contacting me! This email is to confirm that I have successfully received your message.</p>
 
