@@ -17,7 +17,7 @@ export default function Page() {
     }
     return (
         <section>
-            <Suspense fallback={<p>Loading resume...</p>}>
+            <Suspense fallback={<p className='text-center'>Loading resume...</p>}>
                 {/* <UploadForm /> */}
                 <PdfExport {...props} />
             </Suspense>
