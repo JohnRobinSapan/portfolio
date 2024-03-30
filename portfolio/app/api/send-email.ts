@@ -187,7 +187,7 @@ export async function sendEmail(prevState: State, formData: FormData) {
 
         // Send confirmation email
         mailOptions.to = email;
-        mailOptions.subject = `Confirmation: We've Received Your Message!`; // Subject line
+        mailOptions.subject = `Confirmation: Message Received`; // Subject line
         mailOptions.text = `You have a new submission to: ${aboutMe.name} (${aboutMe.email}) \n\nMessage: ${message}`; // plain text body
         mailOptions.attachments = [{
             filename: 'logo.webp',
