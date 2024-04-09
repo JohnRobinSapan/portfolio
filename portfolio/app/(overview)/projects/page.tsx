@@ -1,5 +1,8 @@
 
 import type { Metadata } from 'next';
+import GenericForm from '@/app/components/generic-form';
+import Submit from '@/app/components/submit';
+import { authenticate } from '@/app/api/auth';
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -9,6 +12,10 @@ export const metadata: Metadata = {
 
 
 export default function Page() {
+  const formProps = {
+    action: authenticate
+  };
+
   return (
     <section>
       <div className='lg:ml-56 pt-12'>
@@ -17,6 +24,9 @@ export default function Page() {
           WIP
         </p>
       </div>
+      {/* <GenericForm {...formProps}>
+        <Submit />
+      </GenericForm> */}
     </section>
   );
 }
